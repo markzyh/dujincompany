@@ -1,4 +1,4 @@
- /*  function uploadCardFace() {
+/* function uploadCardFace() {
 	$("#auth_idcard_face").ajaxSubmit({
 		url: "http://dou.fudayiliao.com/account/ImageUpload",
 		type: "post",
@@ -9,7 +9,7 @@
 			}
 		}
 	});
-} */ 
+} */
 
 var app = new Vue({
 	el: '#dymain',
@@ -36,29 +36,22 @@ var app = new Vue({
 
 		}, */
 		uploadCardFace: function (event) {
-			var Gid = '00000000-0000-0000-0000-000000000000'
-			event.preventDefault(); //取消默认行为
-			this.file = event.target.files[0]; //获取文件
-			var windowURL = window.URL || window.webkitURL;
-			this.file = event.target.files[0]; //获取文件
-			this.src = windowURL.createObjectURL(event.target.files[0]);
+			var file = this.$refs.upload_idcard_face.files[0]
 			var formData = new FormData()
 			//var file = this.$refs.upload_idcard_face.files[0]
-			formData.append('file', this.file)
+			formData.append('path', file)
+			formData.append('name', '测试')
 			//formData.append('Gid', Gid)
-			console.log(formData)
-			var instance=axios.create({
-				withCredentials: true
-			   }) 
-			axios.post('http://dou.fudayiliao.com/account/ImageUpload', {
-				formData
-			} , {
-				headers: {
-					'content-type': 'application/x-www-form-urlencoded'
-				}
-
-			} ).then(function(res){
-				console.log(res)
+			console.log(formData.get('file'))
+			var instance=axios.create()
+			instance({
+				url: 'http://dou.fudayiliao.com/account/ImageUpload',
+				method: 'post',
+				transformRequest: [function (data) {
+					// 对 data 进行任意转换处理
+					return data;
+				}],
+				data:formData
 			})
 		},
 		openFile: function (index) {

@@ -183,7 +183,8 @@ dl.htlist_dla dd span.htlist_dld { width: 126px; display: inline-block; font-siz
 
 dl.htlist_dla dd img { vertical-align: top; margin-left: 7px; cursor: pointer; }
 
-dl.htlist_dla dd button.htlist_dld { cursor: pointer; float: right; color: #fff; font-size: 13px; border: 1px solid #bbbbbb; width: 123px; text-align: center; background: transparent; height: 38px; line-height: 38px;border-radius: 4px; background: #19be6b}
+dl.htlist_dla dd input[type='button']{ cursor: pointer; float: right; color: #fff; font-size: 13px; border: 1px solid #bbbbbb; width: 123px; text-align: center; background: transparent; height: 38px; line-height: 38px;border-radius: 4px; background: #19be6b;padding-left: 0;}
+dl.htlist_dla dd input[type='button'].disabled{background: #ebebeb;color: #fff;cursor: not-allowed;}
 
 dl.htlist_dla dd button.htlist_dle { cursor: pointer; margin-left: 127px; border: none; width: 124px; height: 40px; line-height: 40px; background: #eb5169; color: #fff; font-size: 20px; text-align: center; display: inline-block; border-radius: 5px; }
 

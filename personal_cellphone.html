@@ -93,19 +93,21 @@
                         <dl class="htlist_dla">
                             <dd>
                                 <span class="htlist_dld"><em>*</em><label>手机号码：</label></span>
-                                <input class="htlist_dlb" name="mobile" type="mobile" placeholder="请输入新手机号码" v-model="userNewPhone">
+                                <input class="htlist_dlb" name="mobile" type="tel" placeholder="请输入新手机号码" v-model="userNewPhone">
                             </dd>
                             <dd>
                                 <span class="htlist_dld"><em>*</em><label>图片验证码：</label></span>
-                                <input class="htlist_dlc" name="mobile" type="mobile" placeholder="请输入验证码"><img :src="checkCodeUrl"
-                                    alt="" srcset="">
+                                <input class="htlist_dlc" name="mobile" type="text" placeholder="请输入验证码" v-model="imgCheckCode"><img :src="checkCodeUrl"
+                                    alt="" srcset="" @click="changeImgCheck">
                             </dd>
                             <dd>
                                 <span class="htlist_dld"><em>*</em><label>短信验证码：</label></span>
-                                <input class="htlist_dlc" name="mobile" type="mobile" placeholder="请输入验证码">
-                                <button class="htlist_dld disabled" type="button" @click="getPhoneCode">获取验证码</button>
+                                <input class="htlist_dlc" name="mobile" type="text" placeholder="请输入验证码" v-model="cellphoneCheckCode">
+                                <!-- <button class="htlist_dld disabled" type="button" @click="getPhoneCode" >获取验证码</button> -->
+                                <input class="htlist_dld" type="button" @click="getPhoneCode" v-model="cellphoneBtnVal" :disabled="isDisabled" :class="{disabled:isDisabled == true}">
+
                             </dd>
-                            <dd><button class="htlist_dle" type="button">确定</button> </dd>
+                            <dd><button class="htlist_dle" type="button" @click="confirmChangeNumber">确定</button> </dd>
                         </dl>
                     </form>
                 </div>
