@@ -1,0 +1,167 @@
+/* 清除内外边距 */
+*{margin: 0px;padding: 0px;}
+/* 设置默认字体 */
+body, button, input, select, textarea { /* for ie */
+/*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+  /*  font: 12px/1 "微软雅黑"; *//*Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;*/ /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+  outline: none;
+}
+h1 {
+	font-size: 18px; /* 18px / 12px = 1.5 */
+}
+h2 {
+	font-size: 16px;
+}
+h3 {
+	font-size: 14px;
+}
+h4, h5, h6 {
+	font-size: 100%;
+}
+.fl{float: left;}
+.fr{float: right;}
+.cl{zoom: 1;}
+.cl:after{height: 0;display: block;content: "\20";clear: both;}
+address, cite, dfn, em, var {
+	font-style: normal;
+} /* 将斜体扶正 */
+code, kbd, pre, samp, tt {
+	font-family: "Courier New", Courier, monospace;
+} /* 统一等宽字体 */
+small {
+	font-size: 12px;
+} /* 小于 12px 的中文很难阅读，让 small 正常化 */
+/* 重置列表元素 */
+ul, ol {
+	list-style: none;
+}
+/* 重置文本格式元素 */
+a {
+	text-decoration: none;
+	color:#333;
+}
+a:hover {
+	text-decoration: none;
+	color:#333;
+}
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+q:before, q:after {
+	content: '';
+}
+/* 重置表单元素 */
+legend {
+	color: #000;
+} /* for ie6 */
+fieldset, img {
+	border: none;
+} /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+	font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+/* 重置表格元素 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* 重置 hr */
+hr {
+	border: none;
+	height: 1px;
+}
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html {
+	overflow-y: scroll;
+}
+
+
+
+.ht_box{width:1600px;margin:0 auto;background: #f0f0f0;min-height:1000px;padding-top: 90px;}
+li{list-style: none;}
+/* 头部 */
+.htHeader{width:1600px;height:90px;background: #fefefe;}
+.htHeader_con{width:1300px;margin:0 auto;}
+.ht_logo img{margin-top:30px;margin-left: 40px;}
+.ht_nav{margin-top:28px;font-size: 20px;line-height: 31px;}
+.ht_nav li{float: left;margin:0 60px;}
+.ht_person{margin-right: 45px;color:#b7b7b7;line-height: 31px;margin-top:25px;}
+.ht_person img{margin-bottom:-12px;margin-right:13px;}
+/* 右边内容 */
+.ht_content{width:1300px;margin:40px auto;height:755px;clear: both; }
+.ht_contentC{width:215px;background: #fefefe;height:755px;float: left;}
+.ht_content_ul{padding-top: 70px;position: relative;}
+.ht_content_ul>li{height:45px;font-size:18px;line-height: 45px;color:#333333;padding-left: 20px;cursor: pointer;}
+
+.ht_content_ul>li.selected{color: #eb5169;}
+.ht_content_ul>li i{display: inline-block;width:24px;height:22px;margin-bottom: -5px;margin-right: 14px;}
+.ht_content_ul>li:nth-child(1) i{background: url(../images/ht_list01.png)no-repeat;}
+.ht_content_ul>li:nth-child(2) i{background: url(../images/ht_list02.png)no-repeat;}
+.ht_content_ul>li:nth-child(3) i{background: url(../images/ht_list03.png)no-repeat;}
+.ht_content_ul>li:nth-child(4) i{background: url(../images/ht_list04.png)no-repeat;}
+
+.ht_content_ul>li.selected:nth-child(1) i{background: url(../images/ht_hover01.png)no-repeat;}
+.ht_content_ul>li.selected:nth-child(2) i{background: url(../images/ht_hover02.png)no-repeat;}
+.ht_content_ul>li.selected:nth-child(3) i{background: url(../images/ht_hover03.png)no-repeat;}
+.ht_content_ul>li.selected:nth-child(4) i{background: url(../images/ht_hover04.png)no-repeat;}
+
+.ht_content_ul>li:nth-child(5),
+.ht_content_ul>li:nth-child(6),
+.ht_content_ul>li:nth-child(7){font-size:16px;color:#999999;}
+
+.ht_content_ul>li.on{background: #f0f0f0;border-left:2px solid #eb5169;color:#eb5169;}
+.ht_content_ul>li:nth-child(1).on i{background: url(../images/ht_hover01.png)no-repeat;}
+.ht_content_ul>li:nth-child(2).on i{background: url(../images/ht_hover02.png)no-repeat;}
+.ht_content_ul>li:nth-child(3).on i{background: url(../images/ht_hover03.png)no-repeat;}
+.ht_content_ul>li:nth-child(4).on i{background: url(../images/ht_list04.png)no-repeat;}
+/* 个人信息 =============================*/
+.htlist_ul{width:1035px;height:755px;float: left;margin-left: 40px;background: #fefefe;color:#333333;position: inherit;}
+.htlist_ul .htlist_ulC{width:950px;margin:0 auto;}
+.htlist_ulC h3{font-size:20px;line-height:50px;font-weight: normal;width:100%;border-bottom:1px solid #999999;padding-top:30px;}
+.person_info{width:100%;height: 195px;border:1px solid #bbbbbb;margin-top:18px;display: flex;}
+.person_info>img{width:121px;height:121px;margin:36px 30px 0 36px;}
+.person_info_ul{margin-top:35px;}
+.person_info_ul>li{width:290px;float: left;font-size:16px;line-height: 40px;color:#666666;}
+.person_info_ul>li>span{margin-left:15px;color:#b8b8b8;}
+.person_info_ul>li:nth-child(1)>span{color:#333333;}
+.person_info_ul>li:nth-child(5)>span{color:#eb5169;}
+
+.person_ding{display: flex;margin-top: 50px;}
+.person_ding>.ding{width:284px;height:140px;background: #fff6f7;border-radius: 10px;font-size: 20px;color:#666666;}
+.person_ding>.ding>img{margin:38px 15px -23px 30px;}
+.person_ding .ywc{margin:0 50px;}
+.person_ding>.ding>span{color:#eb5169;font-size: 34px;margin-left: 12px;}
+
+
+
+/*订单中心and账户中心 公用样式 ********************* */
+.order_select{height:42px;margin:25px auto;display: flex;}
+.order_select>select{appearance:none;-moz-appearance:none;-webkit-appearance:none;background: url("../images/xl_icon.png") no-repeat scroll 90px center transparent;
+font-size: 16px;color:#666666;padding-left:15px;width:120px;height:40px;border:1px solid #bbbbbb;border-radius: 5px;}
+.order_select .select_time{margin-left:10px;}
+.orderDate{width:360px;height:38px;border:1px solid #bbbbbb;border-radius: 5px;margin-left:10px;font-size: 16px;position: relative;}
+.orderDate img{margin-left:10px;margin-top: 10px;vertical-align: middle;}
+.orderDate>input{border:none;width:110px;height: 30px;background: transparent;padding-left: 35px;line-height: 30px;font-size: 14px;
+	position: absolute;outline: none;}
+.orderDate>span{position: absolute;margin-top: 9px;left:170px;}
+table{font-size: 16px;text-align: center;}
+table td{height:83px;border-bottom:1px dashed #f0f0f0;color:#999999;}
+table th{font-weight: normal;height: 72px;background: #f0f0f0;color:#666666;}
+/* 订单中心 ==============================*/
+.orderCenter{}
+.start_date{top:6px;left:;}
+.end_date{top:6px;left:200px;}
+.order_table{height:530px;}
+.tableOrder th{padding:0 52px;}
+.tableOrder th:nth-child(1){padding:0 65px;}
+.tableOrder td:nth-child(5){color:#eb5169;}
+/* 账户中心 ==============================*/
+.tableAccount th{padding:0 45px;}
+.tableAccount th:nth-child(6){padding:0 58px;}
+
+
+
+
+

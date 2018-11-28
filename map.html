@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body,
+		html {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			font-family: "微软雅黑";
+		}
+
+		#allmap {
+			width: 100%;
+			height: 500px;
+		}
+
+		p {
+			margin-left: 5px;
+			font-size: 14px;
+		}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ToSGheFCFzLkkoCv2BfxvYNt"></script>
+	<title>圆形区域</title>
+	<script src="http://3g.zhongda021.com/js/jquery1.42.min.js"></script>
+</head>
+
+<body>
+	<input type="text" id="_input"><button onclick="localMap();">确定</button>
+	<div id="dist-sel">
+		<input type="radio" name="RadioGroup1" value="4000" id="RadioGroup1_0" checked>4km
+		<input type="radio" name="RadioGroup1" value="6000" id="RadioGroup1_1">6km
+		<input type="radio" name="RadioGroup1" value="8000" id="RadioGroup1_2">8km
+	</div>
+	<div id="allmap"></div>
+
+</body>
+
+</html>
+<script type="text/javascript">
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398, 39.897445);
+	map.centerAndZoom(point, 12);
+
+	function myFun(result) {
+		var cityName = result.name;
+		map.setCenter(cityName);
+	}
+	var myCity = new BMap.LocalCity();
+	myCity.get(myFun);
+
+
+	function localMap() {
+		map.clearOverlays();
+		values = $("#_input").val();
+		var myGeo = new BMap.Geocoder();
+		myGeo.getPoint(values, function (point) {
+			if (point) {
+				var mPoint = new BMap.Point(point.lng, point.lat);
+				map.enableScrollWheelZoom();
+				map.centerAndZoom(mPoint, 13);
+
+				var marker = new BMap.Marker(mPoint); // 创建标注    
+				map.addOverlay(marker);
+
+				var range = $("#dist-sel input:checked").val();
+
+				var circle = new BMap.Circle(mPoint, range, {
+					fillColor: "blue",
+					strokeWeight: 1,
+					fillOpacity: 0.2,
+					strokeOpacity: 0.2
+				});
+
+				map.addOverlay(circle);
+			}
+		}, 'myFun');
+	}
+
+	$('#dist-sel input').change(function () {
+		localMap();
+	});
+	console.log(myFun)
+</script>

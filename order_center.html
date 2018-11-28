@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>订单中心</title>
+    <link href="css/create_order.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/vue-2.x.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 日期插件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+</head>
+
+<body>
+    <!-- 登录注册模块 -->
+    <div class="flied_tc">
+        <div class="close_login_form" onclick="hideLoginForm()">x</div>
+        <div class="flied_td">
+            <h4>快速登录</h4>
+            <form method="post">
+                <div class="flied_te">
+                    <!--<img src="http://www.dujin021.comimages/ion_yzma.png" alt=""> -->
+                    <input type="tel" id="userphone" placeholder="输入手机号">
+                </div>
+                <div class="flied_tf">
+                    <div id="slider2" class="slider"></div>
+                </div>
+                <div class="flied_tg cl">
+                    <input class="flied_th fl" type="text" placeholder="验证码" id="check_code">
+                    <input class="flied_ti fr" type="button" value="获取手机验证码" disabled="disabled" id="get_check" onclick="getCheckNumber()">
+                </div>
+                <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
+            </form>
+        </div>
+    </div>
+    <!-- 登录注册模块 end-->
+    <div id="dymain">
+        <div class="htHeader">
+            <div class="htHeader_con">
+                <div class="ht_logo fl"><img src="images/ht_logo.png" alt=""></div>
+                <div class="ht_nav fl">
+                    <li><a href="personal_center.html">首页</a></li>
+                    <li><a href="http://www.dujin021.com/douyin">抖音运营</a></li>
+                    <li><a href="/">DOU+加速</a></li>
+                    <li><a href="http://www.dujin021.com/about">关于我们</a></li>
+                    <li><a href="http://www.dujin021.com/contact/1.html">常见问题</a></li>
+                </div>
+                <div class="ht_person fr">
+                    
+                    <div class="user_is_login"><img src="images/ht_yh_icon.png" alt=""><span class="user_login_name">倒影年华</span>
+                        &nbsp;&nbsp; |
+                        &nbsp;&nbsp; <span onclick="userLoginOut()">退出</span>
+                    </div>
+                    <div class="user_isnot_login show" onclick="openUserLogin()">注册/登录</div>
+                </div>
+            </div>
+        </div>
+        <div class="dybox" id="dybox">
+            <div class="ht_contentC dy-nav">
+                <ul class="ht_content_ul">
+                        {{watchEndDateVal}}
+                    <li>
+                        <a href="personal_center.html">
+                            <i></i>用户中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="create_order.html">
+                            <i></i>新建计划</a>
+                    </li>
+                    <li class="selected">
+                        <a href="order_center.html">
+                            <i></i>订单中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="personal.html">
+                            <i></i>充值与消费
+                        </a>
+                    </li>
+                    <li>
+                        <i></i>个人资料
+                    </li>
+                    <li class="child"><a href="personal_data.html"><i></i>资料编辑</a></li>
+                    <li class="child"><a href="personal_cellphone.html"><i></i>修改手机号码</a></li>
+                    <li class="child"><a href="personal_password.html"><i></i>修改密码</a></li>
+                    <li class="official"><i></i>增值服务</li>
+                    <li class="child"><a><i></i>企业认证</a></li><li class="child"><a><i></i>商品分享功能</a></li><li class="child"><a><i></i>直播权限</a></li><li class="child"><a><i></i>60秒权限</a></li>
+                    <li><a href="common_problem.html" class="show_problem "><i></i>常见问题</a></li>
+                </ul>
+            </div>
+            <div class="dy-content create_box">
+                <div class="htlist_ulC">
+                    <h3>订单中心</h3>
+                    <div class="orderCenter">
+                        <div class="order_select">
+                            <select name="" id="" class="select_or" v-model="choosedOrderStatus" @change="chooseOrderStatus">
+                                <option v-for="(item,index) in orderStatusLists">{{item.name}}</option>
+                            </select>
+                            <!-- <select name="" id="" class="select_time" v-model="choosedOrderTime" @change="chooseOrderTime"> -->
+                            <select name="" id="" class="select_time" v-model="choosedOrderTime">
+                                <option v-for="(item,index) in orderTimeLists">{{item.name}}</option>
+                            </select>
+                            <div class="orderDate date_picker_group">
+                               <!--  <img src="images/date_icon.png" alt=""> -->
+
+                                    <input type="text" name="dtBegin" class="date-picker start_date" placeholder="开始日期" value=""
+                                    ref="start_date"><span>至</span>
+                                    <input type="text" name="dtEnd" class="date-picker end_date" placeholder="结束日期">
+                            </div>
+                        </div>
+                        <div class="order_table">
+                            <table cellspacing="0" class="tableOrder">
+                                <tr>
+                                    <th>订单编号</th>
+                                    <th>创建时间</th>
+                                    <th>投放金额</th>
+                                    <th>+流量 </th>
+                                    <th>投放形式 </th>
+                                    <th>订单状态</th>
+                                    <th>备注</th>
+                                </tr>
+                                <tr v-for="(item,index) in orderList">
+                                    <td @click="searchOrderNumber(item.OrderNumber)" class="order_detais_link"><a href="order_details.html">{{item.OrderNumber}}</a></td>
+                                    <td>{{timeString(item.CreateDateTime)}}</td>
+                                    <td>{{item.Money}}</td>
+                                    <td>{{item.Serving}}</td>
+                                    <td>{{item.OrderType}}</td>
+                                    <td>{{item.Status}}</td>
+                                    <td>正常</td>
+                                    <!--<td><a href="">详情</a></td>-->
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/slide-check.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/order_center.js"></script>
+</body>
+
+</html>
