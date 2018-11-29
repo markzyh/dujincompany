@@ -166,8 +166,8 @@ var app = new Vue({
             },
         ],
         sexLists: ['不限', '男', '女'],
-        ageLists: ['不限', '18-22岁', '20-40岁', '40岁+'],
-        regionLists: ['全国', '省市', '县区', '商圈', '附近'],
+        ageLists: ['不限', '18-23岁', '24-40岁', '40岁+'],
+        regionLists: ['全国', '省市', '区县', '商圈', '附近'],
         proviceLists: [],
         choosedRangeIndex: 0, //已经选择的辐射范围的数组下标
         addNearbyKm: '+添加', //添加辐射km按钮的值

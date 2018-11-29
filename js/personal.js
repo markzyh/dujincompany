@@ -3,13 +3,13 @@ var app = new Vue({
 	data: {
 		isShowProblems:false,
 		orderNumber: '',
-		choosedTransactionType:'充值类型',
+		choosedTransactionType:'消费类型',
 		startDateVal:'',
 		endDateVal:'',
 		orderList: [],
 		transactionTypeLists:[
 			{
-				name:'充值类型',
+				name:'消费类型',
 				disabled:true,
 				value:''
 			},

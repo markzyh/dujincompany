@@ -43,7 +43,7 @@
             <div class="pay_success_tips">
                 <h5>温馨提示</h5>
                 <p>1.请在安全网络环境下进行金钱支付，以防账号被盗</p>
-                <p>2.本次交易解释权归度进科技有限公司所有</p>
+                <p>2.本次交易解释权归上海度进信息科技有限公司所有</p>
             </div>
         </div>
         <div class="htHeader">
@@ -94,7 +94,7 @@
                     <li class="child"><a href="personal_cellphone.html"><i></i>修改手机号码</a></li>
                     <li class="child"><a href="personal_password.html"><i></i>修改密码</a></li>
                     <li class="official"><i></i>增值服务</li>
-                    <li class="child"><a><i></i>企业认证</a></li>
+                    <li class="child"><a href="company_auth.html"><i></i>企业认证</a></li>
                     <li class="child"><a><i></i>商品分享功能</a></li>
                     <li class="child"><a><i></i>直播权限</a></li>
                     <li class="child"><a><i></i>60秒权限</a></li>
@@ -107,6 +107,10 @@
                     <div class="order_link">
                         <label for="order_link">
                             投放内容
+                            <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
+                                <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
+                                        alt="" class="order_tips_description_tri"><b>您要投放的链接</b>打开您想要投放的视频，<strong>选择“分享到 复制链接”</strong>，将<strong>删除文字后的链接</strong>粘贴到下框。</div>
+                            </div>
                         </label>
                         <input type="text" id="order_link" name="order_link" v-model="orderLink" class="order_link_value"
                             @focus="inputFocus" @blur="inputBlur" />
@@ -212,10 +216,15 @@
                                                     <!-- <input type="text" class="input_address" v-model="userInputAddressName"
                                                         @change="userInputAddress"><input type="button" onclick="localMap();"
                                                         value="添加" class="add_input_address"> -->
-                                                        <input type="text" class="input_address" v-model="userInputAddressName"><input type="button" value="确认" class="add_input_address" @click="userInputAddress">
+                                                    <input type="text" class="input_address" v-model="userInputAddressName"><input
+                                                        type="button" value="确认" class="add_input_address" @click="userInputAddress">
                                                     <p>设置投放半径</p>
                                                     <div id="dist-sel">
-                                                        <div class="dis-inline nearby_group" v-for="(item,index) in customRangeLists" :class="{checked:choosedRangeIndex === index,outchecked:choosedRangeIndex > index}"><input type="radio" name="RadioGroup1" :value="choosedRangeValue" id="RadioGroup1_0" @click="chooseNearbyKm(index)" @change="showRange" :checked="choosedRangeIndex === index">
+                                                        <div class="dis-inline nearby_group" v-for="(item,index) in customRangeLists"
+                                                            :class="{checked:choosedRangeIndex === index,outchecked:choosedRangeIndex > index}"><input
+                                                                type="radio" name="RadioGroup1" :value="choosedRangeValue"
+                                                                id="RadioGroup1_0" @click="chooseNearbyKm(index)"
+                                                                @change="showRange" :checked="choosedRangeIndex === index">
                                                             <div class="nearby_km">{{item.name}}</div>
                                                             <h6 v-if="index != 4"></h6>
                                                         </div>
@@ -228,21 +237,22 @@
                                                     <!-- <p class="submit_address"><span>地址:</span><input type="text" v-model="submitAddress"></p>
                                                     <p><span v-for="(item,index) in submitAddressRangeList">{{item.name}}</span></p> -->
                                                 </div>
-                                                <div class="region_choosed">
+                                                <div class="region_choosed" v-if="index != 4">
                                                     已选：{{choosedValue}}
                                                     <!-- <span v-for="(item,index) in "></span>  -->
                                                 </div>
                                                 <div class="region_choosed" v-if="index === 4">
-                                                        已选区域：<span v-for="(item,index) in choosedNearbyLists" v-if="choosedNearbyLists.length >= 0">{{item.name}}{{item.km}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                        <!-- <span v-for="(item,index) in "></span>  -->
-                                                    </div>
+                                                    已选区域：<span v-for="(item,index) in choosedNearbyLists" v-if="choosedNearbyLists.length >= 0">{{item.name}}{{item.km}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                    <!-- <span v-for="(item,index) in "></span>  -->
+                                                </div>
                                                 <div class="confirm_provice" @click="confirmProvice(index)">
                                                     确定
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="order_choosed_params">已选择<span>性别 : {{choosedSex}}</span><span>年龄 : {{choosedAge.toString()}}</span><span>地域 :
+                                    <div class="order_choosed_params">已选择<span>性别 : {{choosedSex}}</span><span>年龄 :
+                                            {{choosedAge.toString()}}</span><span>地域 :
                                             {{choosedValue}}</span></div>
                                 </div>
                             </transition>
@@ -264,6 +274,13 @@
                         </label>
                     </div>
                     <div class="order_price">
+                        <label for="order_increment">
+                            投放金额
+                            <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
+                                <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
+                                        alt="" class="order_tips_description_tri"><b>投放金额</b>投放金额为此次投放的最大消耗值，系统会尽可能100%投放完成。但投放过程中若遇到如视频删除／设好友可见或私密／人工举报／投放效率不佳，系统会自动结束投放。剩余未消耗的金额将3～48小时可退回到您的账户中心。</div>
+                            </div>
+                        </label>
                         <div class="order_typename_group" v-for="(item,index) in PayLists">
                             <input type="radio" name="orderType" :class="{radio_checked:nowPayIndex === index}" @click="choosePayNumber(index)"><span>{{item.name}}<img
                                     src="images/order_tips_description_tri.jpg" alt="" class="order_tips_description_tri show"

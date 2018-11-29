@@ -75,15 +75,10 @@
             <div class="order_main">
                 <h4 class="order_maina">订单状态</h4>
                 <dl class="order_mainb  cl">
-                    <dt class="order_maind">提交订单</dt>
-                    <dd class="order_mainc"></dd>
-                    <dt class="order_maind">审核中</dt>
-                    <dd class="order_mainc"></dd>
-                    <dt class="order_maind">投放中
-                    <dd></dd>
+                    <dt class="order_maind">提交订单<span class="order_mainc"></span></dt>
+                    <dt class="order_maind">审核中<span class="order_mainc"></span></dt>
+                    <dt class="order_maind">投放中<span class="order_mainc"></span></dt>
                     <dt>已完成</dt>
-                    </dd>
-                    </dt>
                 </dl>
                 <div class="order_maine cl">
                     <div class="order_mainf fl">
@@ -113,24 +108,17 @@
                     </div>
                 </div>
                 <div class="order_mainn cl">
-                    <span class="order_maino">已经消耗金额 <i class="order_mainp">?</i><em class="order_mainq dialog_l">¥500
-                            <div class="xhje_a  xhje_b">
-                                <img src="images/ht_hocertop.png" alt="">
-                                <h4>已消耗金额</h4>
-                                <p>本次投放中，已经用于视频投放的
-                                    金额。</p>
-                            </div>
-                        </em></span>
-                    <span class="order_maino">已经消耗金额 <i class="order_mainp">?</i><em class="order_mainq dialog_l">0.1%
-
-                            <div class="xhje_a xhje_c">
-                                <img src="images/ht_hocertop.png" alt="">
-                                <h4>消耗完成度</h4>
-                                <p>设置投放的金额中已经消耗金额的
-                                    比例（计算公式：已消耗金额 / 本
-                                    次投放总金额）</p>
-                            </div>
-                        </em></span>
+                    <div class="compony_auth_label dis-inline">已消耗金额<div class="create_order_tips"><img src="images/create_order_tips.png"
+                                alt="" class="order_tips_icon">
+                            <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg" alt=""
+                                    class="order_tips_description_tri"><b>已消耗金额</b>本次投放中，已经用于视频投放的金额。</div>
+                        </div><span>600</span></div>
+                    <div class="compony_auth_label dis-inline">消耗完成度<div class="create_order_tips"><img src="images/create_order_tips.png"
+                                alt="" class="order_tips_icon">
+                            <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg" alt=""
+                                    class="order_tips_description_tri"><b>消耗完成度</b>设置投放的金额中已经消耗金额的比例（计算公式：已消耗金额 /
+                                本次投放总金额）</div>
+                        </div><span>600</span></div>
                 </div>
                 <h4 class="order_mainj">数据总览</h4>
                 <ul class="order_mainr cl">
@@ -145,8 +133,6 @@
                     </li>
 
                 </ul>
-
-
                 <h4 class="order_mainj">互动数据</h4>
                 <ul class="order_mainr order_mains cl">
                     <li>
@@ -170,11 +156,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
         <div class="dialog_a" v-if="isShowProblems" :class="{show:isShowProblems}">
             <div class="dialog_b">
                 <img src="images/ht_hoverd.png" @click="closeProblems" alt="">

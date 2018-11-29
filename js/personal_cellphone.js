@@ -5,9 +5,10 @@ var app = new Vue({
 		cellphoneBtnVal:'获取验证码',
 		userCellphoneNumber: '',//mpounted后获取的用户原有的手机
 		cellphoneCheckCode:'',//手机验证码
-		userNewPhone:'',//用户新手机号码
-		checkCodeUrl: "", //图形验证码链接
-		imgCheckCode:''//图像验证码内容
+		userNewPhone:'',  //用户新手机号码
+		checkCodeUrl: "",    //图形验证码链接
+		imgCheckCode:'',    //图像验证码内容
+		createdToken:''     //自动生成的token
 	},
 	methods: {
 		//确认修改手机号
@@ -16,16 +17,21 @@ var app = new Vue({
 			var Phone = this.userNewPhone
 			var Code = this.cellphoneCheckCode
 			var Data = this.imgCheckCode
+			var Key = this.createdToken
 			axios.post('http://dou.fudayiliao.com//account/ChangePhone',{
 				Token:Token,
 				Phone:Phone,
 				Code:Code,
-				Data:Data
+				Data:Data,
+				Key:Key
 			},{
 				headers: {
 					'content-type': 'application/x-www-form-urlencoded'
 				}
 			}).then(function(res){
+				if(res.data.Code == 12){
+					alert('您修改的手机号与原手机号一致,请您输入新的手机号')
+				}
 				console.log(res)
 			})
 		},
@@ -58,6 +64,7 @@ var app = new Vue({
 		getCheckCode: function () {
 			//var token = getUsermessage().token
 			var createdToken = this.createToken()
+			this.createdToken = createdToken
 			var checkCode = 'http://dou.fudayiliao.com/account/getcode/'+createdToken
 			this.checkCodeUrl = checkCode.toString()
 			console.log(this.checkCodeUrl)

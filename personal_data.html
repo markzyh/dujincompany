@@ -84,7 +84,7 @@
                     <li class="child "><a href="personal_cellphone.html"><i></i>修改手机号码</a></li>
                     <li class="child"><a href="personal_password.html"><i></i>修改密码</a></li>
                     <li class="official"><i></i>增值服务</li>
-                    <li class="child"><a><i></i>企业认证</a></li>
+                    <li class="child"><a href="company_auth.html"><i></i>企业认证</a></li>
                     <li class="child"><a><i></i>商品分享功能</a></li>
                     <li class="child"><a><i></i>直播权限</a></li>
                     <li class="child"><a><i></i>60秒权限</a></li>
@@ -97,12 +97,12 @@
                     <dl class="htlist_dla">
                         <dd>
                             <span class="htlist_dld"><em>*</em><label>抖音昵称：</label></span>
-                            <input class="htlist_dlb" name="mobile" type="text" v-model="douyinNameVal" @focus="dyNameFocus"
+                            <input class="htlist_dlb" name="mobile" type="text" v-model="douyinNameVal" placeholder="请输入您要投放的抖音昵称" @focus="dyNameFocus"
                                 @blur="dyNameBlur">
                         </dd>
                         <dd>
                             <span class="htlist_dld"><em>*</em><label>抖音号：</label></span>
-                            <input class="htlist_dlb" name="mobile" type="text" v-model="douyinNumberVal" @focus="dyIdFocus"
+                            <input class="htlist_dlb" name="mobile" type="number" v-model="douyinNumberVal" placeholder="请输入您要投放的抖音号" @focus="dyIdFocus"
                                 @blur="dyNameFocus">
                         </dd>
                         <dd>
@@ -126,32 +126,79 @@
                         <div class="order_typename_group" v-for="(item,index) in authenticationLists" :key="index"><input
                                 type="radio" name="choose_authentication" :class="{radio_checked:choosedAuthIndex === index}"
                                 :value="item.name" @click="choosedAuth(index)"><span>{{item}}</span></div>
-                        <!-- 个人认证部分 -->
-                        <div class="personal_auth">
-                            <p class="personal_auth_name"><span><em>*</em>真实姓名：</span><input type="text" value=""
-                                    placeholder="请输入您的真实姓名"></p>
-                            <div class="personal_auth_idcard">
-                                <span><em>*</em>上传二代身份证：</span>
-                                <div class="dis-inline">
-                                    <div class="dis-inline auth_idcard">
-                                        <strong @click="openFile">上传人像面</strong>
-                                        <form id="auth_idcard_face">
-                                            <input type="file" ref="upload_idcard_face" name="path" @change="uploadCardFace($event)">
-                                        </form>
+                        <transition name="show1">
+                            <!-- 个人认证部分 -->
+                            <div class="personal_auth" v-if="choosedAuthIndex === 0">
+                                <p class="personal_auth_name"><span><em>*</em>真实姓名：</span><input type="text" v-model="userRealName"
+                                        placeholder="请输入您的真实姓名"></p>
+                                <div class="personal_auth_idcard">
+                                    <span><em>*</em>上传二代身份证：</span>
+                                    <div class="dis-inline over-hidden">
+                                        <div class="dis-inline auth_idcard">
+                                            <form id="auth_idcard_face">
+                                                <label for="upload_idcard_face" v-if="idcardFaceURL == false">上传人像面</label>
+                                                <input type="file" v-if="idcardFaceURL == false" ref="upload_idcard_face"
+                                                    id="upload_idcard_face" name="path" @change="uploadCardFace($event,'upload_idcard_face','idcardFaceURL')">
+                                                <img :src="idcardFaceURL" alt="" v-if="idcardFaceURL != false">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="dis-inline over-hidden" style="margin-left: 30px;">
+                                        <div class="dis-inline auth_idcard">
+                                            <form id="auth_idcard_back">
+                                                <label for="upload_idcard_back" v-if="idcardBackURL == false">上传国徽面</label>
+                                                <input type="file" v-if="idcardBackURL == false" ref="upload_idcard_back"
+                                                    name="path" id="upload_idcard_back" @change="uploadCardFace($event,'upload_idcard_back','idcardBackURL')">
+                                                <img :src="idcardBackURL" alt="" v-if="idcardBackURL != false">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="dis-inline">
+                                <p class="personal_auth_tips" v-if="choosedAuthIndex === 0">请上传四角完整，亮度均匀，照片清晰的二代身份证，图片格式需为JPG,JPEG格式，大小不能超过500k。</p>
+                            </div>
+                        </transition>
+                        <transition name="show1">
+                        <!-- 企业认证部分 -->
+                        <div class="personal_auth personal_compantlicense" v-if="choosedAuthIndex === 1">
+                            <p class="personal_auth_name"><span><em>*</em>企业名称：</span><input type="text" v-model="companyName"
+                                    placeholder="请输入您的企业名称"></p>
+                            <p class="personal_auth_name personal_auth_license"><span><em>*</em>营业执照注册号 ：</span><input
+                                    type="number" v-model="companyNumber" placeholder="请输入18位统一社会信用代码"></p>
+                            <div class="personal_auth_idcard dis-inline personal_auth_comlience">
+                                <span><em>*</em>企业营业执照：</span>
+                                <div class="dis-inline over-hidden">
                                     <div class="dis-inline auth_idcard">
-                                        <strong>上传人像面</strong>
                                         <form id="auth_idcard_face">
-                                            <input type="file">
+                                            <label for="compamy_idcard" v-if="companyIdUrl == false">上传营业执照</label>
+                                            <input type="file" v-if="companyIdUrl == false" id="compamy_idcard" ref="compamy_idcard" name="path" @change="uploadCardFace($event,'compamy_idcard','companyIdUrl')">
+                                            <img :src="companyIdUrl" alt="" v-if="companyIdUrl != false">
                                         </form>
                                     </div>
+                                    <p>请上传最新的营业执照彩色扫描件，各字段及印章完整清晰，资质无残缺信息，图片格式需为JPG,JPEG格式，大小不能超过500k。</p>
+                                </div>
+                            </div>
+                            <div class="personal_auth_idcard dis-inline personal_auth_comlience">
+                                <span><em>*</em>行业许可证：</span>
+                                <div class="dis-inline over-hidden">
+                                    <div class="dis-inline auth_idcard">
+                                        <form id="auth_idcard_face">
+                                            <label for="industryCard" v-if="industryCardURL == false">上传行业许可证</label>
+                                            <input type="file" v-if="industryCardURL == false" id="industryCard" ref="industryCard" name="path" @change="uploadCardFace($event,'industryCard','industryCardURL')">
+                                            <img :src="industryCardURL" alt="" v-if="industryCardURL != false">
+                                        </form>
+                                    </div>
+                                    <p>请上传最新的行业许可证彩色扫描件，各字段及印章完整清晰，资质无残缺信息，图片格式需为JPG,JPEG格式大小不能超过500k。</p>
                                 </div>
                             </div>
                         </div>
+                        </transition>
                     </div>
-
+                    <div class="personal_agree">
+                        <p class=""><input type="radio" name="choose_authentication" :class="{radio_checked:isAgree == true}"
+                                value="" @click="changeAgree">同意<a href="">《上海度进信息科技有限公司服务使用协议》</a> </p>
+                        <input type="button" class="confirm_personal_data" :disabled="isAgree != true" :class="{disabled:isAgree != true}"
+                            value="确定" @click="submitUserMessage">
+                    </div>
                 </div>
 
             </div>
