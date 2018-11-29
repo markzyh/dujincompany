@@ -18,9 +18,9 @@
 <file name="login.js" server="djback.120fd.cn.a.o" local="131879443671860510" remote="131879443200000000" Dst="0" />
 <file name="order_center.js" server="djback.120fd.cn.a.o" local="131877903996373263" remote="131877907800000000" Dst="0" />
 <file name="personal.js" server="djback.120fd.cn.a.o" local="131879475162470812" remote="131879475000000000" Dst="0" />
-<file name="order_details.js" server="djback.120fd.cn.a.o" local="131877027292870671" remote="131877031800000000" Dst="0" />
+<file name="order_details.js" server="djback.120fd.cn.a.o" local="131879597887491397" remote="131879598600000000" Dst="0" />
 <file name="personal_cellphone.js" server="djback.120fd.cn.a.o" local="131879455598883039" remote="131879455200000000" Dst="0" />
-<file name="personal_center.js" server="djback.120fd.cn.a.o" local="131879481756930649" remote="131879482800000000" Dst="0" />
+<file name="personal_center.js" server="djback.120fd.cn.a.o" local="131879500406829605" remote="131879598600000000" Dst="0" />
 <file name="personal_data.js" server="djback.120fd.cn.a.o" local="131879467563218509" remote="131879467800000000" Dst="0" />
 <file name="personal_password.js" server="djback.120fd.cn.a.o" local="131877843039640708" remote="131877843000000000" Dst="0" />
 <file name="create-order_copy.js" server="djback.120fd.cn.a.o" local="131876720351150551" remote="131876996400000000" Dst="0" />
@@ -32,4 +32,5 @@
 <file name="jquery.transit.min.js" server="djback.120fd.cn.a.o" local="131877918226157151" remote="131876997600000000" Dst="0" />
 <file name="slick.js" server="djback.120fd.cn.a.o" local="131865682884878397" remote="131876996400000000" Dst="0" />
 <file name="jquery-1.10.1.min.js" server="djback.120fd.cn.a.o" local="131865682881980054" remote="131876996400000000" Dst="0" />
+<file name="company_auth.js" server="djback.120fd.cn.a.o" local="131879543033111717" remote="131879598600000000" Dst="0" />
 </dwsync>
