@@ -175,7 +175,19 @@ var app = new Vue({
 					_this.orderList = res.data.Data
 				})
 		},
-		timeString: function (string) {
+		//把时间戳转译成普通格式
+		transformDateStamp:function(param) {
+			var date = new Date(parseInt(param.substr(6, 19)))
+			var timeYear = new Date(date).getFullYear();
+			var timeMouth = new Date(date).getMonth() + 1;
+			var timeDate = new Date(date).getDate();
+			var timeHours = new Date(date).getHours();
+			var timeMinutes = new Date(date).getMinutes();
+			var timeSeconds = new Date(date).getSeconds();
+			var time = this.checkTen(timeYear) + "-" + this.checkTen(timeMouth) + "-" + this.checkTen(timeDate) + "   " + this.checkTen(timeHours) + ":" + this.checkTen(timeMinutes) + ":" + this.checkTen(timeSeconds)
+			return time
+		},
+		/* timeString: function (string) {
 			var aa = new Date(parseInt(string.substr(6, 19)))
 			var timeYear = new Date(parseInt(string.substr(6, 19))).getFullYear();
 			var timeMouth = new Date(parseInt(string.substr(6, 19))).getMonth() + 1;
@@ -185,7 +197,7 @@ var app = new Vue({
 			var timeSeconds = new Date(parseInt(string.substr(6, 19))).getSeconds();
 			var time = this.checkTen(timeYear) + "-" + this.checkTen(timeMouth) + "-" + this.checkTen(timeDate) + "   " + this.checkTen(timeHours) + ":" + this.checkTen(timeMinutes) + ":" + this.checkTen(timeSeconds)
 			return time
-		},
+		}, */
 		checkTen: function (num) {
 			if (num < 10) {
 				num = "0" + num

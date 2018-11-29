@@ -82,8 +82,8 @@
                 </dl>
                 <div class="order_maine cl">
                     <div class="order_mainf fl">
-                        <span class="order_mainh">下单时间：2018-11-15<em class="order_maini">13:55:23</em></span>
-                        <span>下单金额：<em>¥100</em></span>
+                        <span class="order_mainh">下单时间：<!-- 2018-11-15<em class="order_maini">13:55:23</em> -->{{orderDate}}</span>
+                        <span>下单金额：<em>¥{{orderMoney}}</em></span>
                     </div>
                     <div class="order_maing fl">
                         <b>正在审核</b>
@@ -100,11 +100,13 @@
                 <h4 class="order_mainj">投放内容</h4>
                 <div class="order_maink">
                     <img src="images/ht_yh_winco.png" alt="">
-                    <i><em>倒影年华</em>的抖音视频</i>
-                    <div class="cl fr">
-                        <span class="order_mainl"></span>
-                        <span class="order_mainl"></span>
-                        <span class="order_mainl"></span>
+                    <div class="dis-inline">
+                        <i>抖音昵称：{{userName}}</i>
+                        <i>抖音号：{{douyinId}}</i>
+                    </div>
+                    
+                    <div class="cl fr order_link">
+                        投放链接：{{orderLink}}
                     </div>
                 </div>
                 <div class="order_mainn cl">
@@ -126,23 +128,23 @@
                         <i></i><span>展示量</span><em>0</em>
                     </li>-->
                     <li>
-                        <i></i><span>播放量</span><em>20</em>
+                        <i></i><span>播放量</span><em>{{playCount}}</em>
                     </li>
                     <li>
-                        <i></i><span>互动量</span><em>10</em>
+                        <i></i><span>互动量</span><em>{{interactionCount}}</em>
                     </li>
 
                 </ul>
                 <h4 class="order_mainj">互动数据</h4>
                 <ul class="order_mainr order_mains cl">
                     <li>
-                        <i></i><span>分享数</span><em>20</em>
+                        <i></i><span>分享数</span><em>{{shareCount}}</em>
                     </li>
                     <li>
-                        <i></i><span>评论数</span><em>20</em>
+                        <i></i><span>评论数</span><em>{{commentCount}}</em>
                     </li>
                     <li>
-                        <i></i><span>点赞数</span><em>10</em>
+                        <i></i><span>点赞数</span><em>{{likeCount}}</em>
                     </li>
 
                 </ul>

@@ -348,7 +348,7 @@ input[type='radio'] { width: 18px; height: 18px; border: 1px solid #999; border-
 
 .create_order_tips:hover .order_tips_description { display: block; }
 
-.order_link { border-bottom: 1px dashed #f0f0f0; padding-bottom: 30px; }
+.order_link { border-bottom: 1px dashed #f0f0f0; padding-bottom: 30px; font-size: 16px;color: #999;}
 
 .order_link_value { background-image: url(../images/order_link_icon_03.png); background-repeat: no-repeat; background-position: left center; background-origin: content-box; width: 564px; border: 1px solid #a4a4a4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; line-height: 56px; background-color: transparent; padding-left: 22px; text-indent: 2em; font-size: 16px; color: #ccc; }
 
@@ -447,6 +447,8 @@ h4.order_maina {height: 87px;line-height:120px;text-align: center;  color: #3333
 .order_maine em.order_maini {margin-left: 10px;}
 h4.order_mainj{color: #333333;font-size: 16px;font-weight: normal;line-height: 63px;margin-left: 8px; }
 .order_maink {width:1300px;border-bottom: 1px dashed #f0f0f0; padding-bottom: 24px;}
+.order_maink i{display: block;font-style: normal;color: #999}
+.order_maink .dis-inline{vertical-align: middle}
 .order_maink img{vertical-align: middle; margin: 0px 8px 0px 8px;border-radius: 50%;width: 69px;}
 .order_maink span.order_mainl{display: inline-block;width: 69px;height: 69px;  background: #f0f0f0; margin-left: 28px;}
 .order_mainn {padding: 22px 0px;}

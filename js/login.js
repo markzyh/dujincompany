@@ -41,7 +41,7 @@ function userLogin() {
 				cellphoneNumber: cellphoneNumber,
 				douyinId: douyinId
 			}
-			setUserMessage('userMessage', userMessageObj)
+			setUserMessage('userMessage', userMessageObj)//本地存储用户信息
 			console.log(localStorage)
 			checkUserIsLogin() //开始检测是否存入本地存储中,如果存入拿出用户名
 			//openCreateOrder()//都加速页面,判断
@@ -209,7 +209,18 @@ function checkPhone() {
 		getCheckNumberDisable()
 	}
 }
-//打开本地地图
+//转换时间戳
+function transformDate(param) {
+	var date = new Date(parseInt(param.substr(6, 19)))
+	var timeYear = new Date(date).getFullYear();
+	var timeMouth = new Date(date).getMonth() + 1;
+	var timeDate = new Date(date).getDate();
+	var timeHours = new Date(date).getHours();
+	var timeMinutes = new Date(date).getMinutes();
+	var timeSeconds = new Date(date).getSeconds();
+	var time = this.checkTen(timeYear) + "-" + this.checkTen(timeMouth) + "-" + this.checkTen(timeDate) + "   " + this.checkTen(timeHours) + ":" + this.checkTen(timeMinutes) + ":" + this.checkTen(timeSeconds)
+	return time
+}
 
 
 

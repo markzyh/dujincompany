@@ -62,7 +62,7 @@
         <div class="dybox" id="dybox">
             <div class="ht_contentC dy-nav">
                 <ul class="ht_content_ul">
-                        {{watchEndDateVal}}
+                       <!--  {{watchEndDateVal}} -->
                     <li>
                         <a href="personal_center.html">
                             <i></i>用户中心
@@ -126,7 +126,7 @@
                                 </tr>
                                 <tr v-for="(item,index) in orderList">
                                     <td @click="searchOrderNumber(item.OrderNumber)" class="order_detais_link"><a href="order_details.html">{{item.OrderNumber}}</a></td>
-                                    <td>{{timeString(item.CreateDateTime)}}</td>
+                                    <td>{{transformDateStamp(item.CreateDateTime)}}</td>
                                     <td>{{item.Money}}</td>
                                     <td>{{item.Serving}}</td>
                                     <td>{{item.OrderType}}</td>
