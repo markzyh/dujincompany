@@ -121,8 +121,8 @@ h6{font-size:10px;}
 .dou_sao{position: absolute;top:-20px;left: 0;z-index: 1}
 .dou_btn{display: block;text-align: center;margin-top: 1.5%;}
 .dou_btn a{width: 630px;height: 90px;line-height: 90px;display: inline-block;margin-left: -320px;background: url(../images/dou_btn2.png) no-repeat;font-size: 30px;color: #fff;cursor: pointer;}
-.dou_btn2{margin-top: 20px;}
-.dou_btn2 a{background: url(../images/dou_btn2.png) no-repeat;margin-left: auto;}
+.dou_btn2{margin-top: 20px; position: relative; height: 90px; overflow: hidden}
+.dou_btn2 a{background: url(../images/dou_btn2.png) no-repeat;margin-left: auto;position: absolute; bottom: -110%; left:50%; margin-left:-315px;}
 .dou_btn_bg_icon{margin-right: 16px;}
 .dou_btn3 a{background: url(../images/dou_btn3.png) no-repeat;margin-left: auto;}
 .dou_btn4 a{background: url(../images/dou_btn4.png) no-repeat;margin-left: auto;}
@@ -273,7 +273,8 @@ button{display: inline-block;outline: none;border: none;text-align: center;text-
 .photo_wall ul li{width: 19.6%;position: relative;cursor: pointer;transition: all 1s ease-in-out; float: left; margin:0 0.2%;}
 .photo_wall ul li .playBtn { position: absolute; left:50%; top:50%; margin:-25px 0 0 -25px; z-index: 3;}
 .photo_wall ul li .show_wall{position: relative;}
-.photo_wall ul li .show_wall .imgs{width: 100%;}
+.photo_wall ul li .show_wall .imgs{width: 100%; display: block; position: absolute; top:0; left:0; z-index: 4; transition: top 0.5s;}
+.photo_wall ul li:hover .imgs { top:-120%;}
 .photo_wall ul li .show_wall:hover a{color: #ff5455;}
 .photo_wall ul li:hover .hide_wall{display: block;transition: all 1s ease-in-out;}
 .photo_wall ul li .show_wall .show_wall_info{position: absolute;top: 55%;left: 0;right: 0;margin: 0 auto;}
@@ -293,6 +294,7 @@ button{display: inline-block;outline: none;border: none;text-align: center;text-
 .photo_wall ul li .hide_wall img{width: 100%;margin:0;}
 .photo_wall ul li .hide_wall > span{font-size: 18px;color: #fe345e;text-align: center;display: block;font-weight: bold;margin-right: 25px;margin-top: -46%;
 width: 100%;}
+
 #dou-menu{position: fixed;top: 30%;right: 4%;z-index: 9999;}
 #dou-menu li{display: block;overflow: hidden;margin-top: 20px;}
 #dou-menu li.active span{background: #6493ff;width:100%;-webkit-transition: width 0.8s ease;-moz-transition: width 0.8s ease;-o-transition: width 0.8s ease;-ms-transition: width 0.8s ease;transition: width 0.8s ease;height: 2px;}
@@ -303,9 +305,18 @@ width: 100%;}
 /*#dou-menu li:hover span{display: block;background: #999;}*//*介绍部分*/.speed_intro_wide{width: 100%;height: 100%;display: flex;align-items: center;justify-content: center;}
 .speed_intro{width: 1920px;padding:60px 0 60px;background: url(../images/speed_intro_bg.jpg) no-repeat center;background-size: 1920px 100%; position: relative;}
 .speed_intro_inside{width: 80%;margin:0 auto;overflow: hidden;}
-.speed_intro_text{margin-top: 60px;}
-.speed_intro_text li{overflow: hidden;margin-top: 40px;}
-.speed_intro_text i{display: inline-block;width: 30px;height: 30px;background: url(../images/speed_icon.png) no-repeat;margin-right: 14px;margin-top: 6px;}
+.speed_intro_text{margin-top: 60px; position: relative;}
+.speed_intro_text li{overflow: hidden;margin-top: 40px; position: relative; left:-110%;}
+.speed_intro_text i{display: inline-block;width: 30px;height: 30px;background: url(../images/speed_icon.png) no-repeat;margin-right: 14px;margin-top: 6px; }
+/*
+.speed_intro_text li:first-child { top:40px;}
+.speed_intro_text li:nth-child(2) { top:85px;}
+.speed_intro_text li:nth-child(3) { top:130px;}
+.speed_intro_text li:nth-child(4) { top:175px;}
+.speed_intro_text li:nth-child(5) { top:220px;}
+.speed_intro_text li:nth-child(6) { top:265px;}
+*/
+
 .speed_intro_text li:first-child i{background-position: 0 0;}
 .speed_intro_text li:nth-child(2) i{background-position: -41px 0;}
 .speed_intro_text li:nth-child(3) i{background-position: -82px 0;}
@@ -349,7 +360,6 @@ width: 100%;}
 .TraditionalOptimization-Right { top:-10px;}
 .dou_btn5 { margin-top:288px;}
 .f2-rul1-qr { display: none;}
-.photo_wall ul li .show_wall { background: #000;}
 .comBg { position:absolute; width:100%; left:0; height:50px; background:#000;}
 .comBg.tops { top:0;}
 .comBg.bots { bottom:0;}
@@ -366,3 +376,6 @@ width: 100%;}
     font-size: 26px;
     color: #fff;
 }
+.videoPla { width:100%; height: 100%;}
+.videoBox { max-height: 543px;}
+

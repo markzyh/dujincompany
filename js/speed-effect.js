@@ -110,14 +110,14 @@
 					setTimeout(function(){
 						$(attr).animate({
 						opacity:0.8,
-						bottom:'-50%',
+						bottom:'-110%',
 						bottom:0,
 						opacity:1
 						},1000)
 					},speed*1000)
 					
 				}
-				function autoSlideInBottom(attrs,speeds){
+				function autoSlideInDown(attrs,speeds){
 					setTimeout(function(){
 						$(attrs).animate({
 						opacity:0.8,
@@ -128,19 +128,40 @@
 					},speeds*1000)
 					
 				}
+			
+				function autoSlideInRight(attrs,speeds){
+					setTimeout(function(){
+						$(attrs).animate({
+						opacity:0.8,
+						left:'-110%',
+						left:'0',
+						opacity:1
+						},1000)
+					},speeds*1000)
+					
+				}
 				
 				$('.speed_intro_wide').mouseover(function(){
-					autoSlideInBottom('.speed_common_title2',0.5)
-					autoSlideInUp('.dou_btn2',2.5)
+					autoSlideInDown('.speed_common_title2',0.3)
 					
-					autoSlideInUp('.speed_intro_pro .speed_pro_01',0.5)
-					autoSlideInUp('.speed_intro_pro .speed_pro_02',0.8)
-					autoSlideInUp('.speed_intro_pro .speed_pro_03',1)
-					autoSlideInUp('.speed_intro_pro .speed_pro_04',1.2)
-					autoSlideInUp('.speed_intro_pro .speed_pro_05',1.5)
-					autoSlideInUp('.speed_intro_pro .speed_pro_06',1.8)
-					autoSlideInUp('.speed_intro_pro .speed_pro_07',2)
-					autoSlideInUp('.speed_intro_pro .speed_pro_08',2.2)
+					autoSlideInRight('.speed_intro_text .li1',0.7)
+					autoSlideInRight('.speed_intro_text .li2',1.1)
+					autoSlideInRight('.speed_intro_text .li3',1.5)
+					autoSlideInRight('.speed_intro_text .li4',1.9)
+					autoSlideInRight('.speed_intro_text .li5',2.3)
+					autoSlideInRight('.speed_intro_text .li6',2.7)
+					
+					autoSlideInUp('.speed_intro_pro .speed_pro_01',3.1)
+					autoSlideInUp('.speed_intro_pro .speed_pro_02',3.5)
+					autoSlideInUp('.speed_intro_pro .speed_pro_03',3.9)
+					autoSlideInUp('.speed_intro_pro .speed_pro_04',4.3)
+					autoSlideInUp('.speed_intro_pro .speed_pro_05',4.7)
+					autoSlideInUp('.speed_intro_pro .speed_pro_06',5.1)
+					autoSlideInUp('.speed_intro_pro .speed_pro_07',5.5)
+					autoSlideInUp('.speed_intro_pro .speed_pro_08',5.9)
+					
+					autoSlideInUp('.dou_btn2 a',6.3)
+					
 					/*for(var i=0;i<$('.speed_intro_pro li').length;i++){
 						(function(e){
 							setTimeout(function(){

@@ -39,7 +39,6 @@ function localMap() {
             }
         }, 'myFun');
     }, 200)
-
 }
 var app = new Vue({
     el: '#dymain',

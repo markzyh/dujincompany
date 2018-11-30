@@ -1,0 +1,25 @@
+	<!-- 登录注册模块 -->
+    <div class="flied_tc">
+        <div class="close_login_form" onclick="hideLoginForm()">x</div>
+        <div class="flied_td">
+            <h4>快速登录</h4>
+            <form method="post">
+                <div class="flied_te">
+                    <input type="tel" id="userphone" placeholder="输入手机号">
+                </div>
+                <div class="flied_tf">
+                    <div id="slider2" class="slider"></div>
+                </div>
+                <div class="flied_tg cl">
+                    <input class="flied_th fl" type="text" placeholder="验证码" id="check_code">
+                    <input class="flied_ti fr" type="button" value="获取手机验证码" disabled="disabled" id="get_check" onclick="getCheckNumber()">
+                </div>
+                <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
+            </form>
+        </div>
+    </div>
+    <!-- 登录注册模块 end-->
+	<script src="js/slide-check.js"></script>
+	
+
+

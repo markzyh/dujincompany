@@ -13,9 +13,9 @@
 <file name="order_center.js" server="dujin.120fd.cn.a.b" local="131876788010009868" remote="131876787600000000" Dst="0" />
 <file name="douspeed.js" server="dujin.120fd.cn.a.b" local="131876719062405733" remote="131876718600000000" Dst="0" />
 <file name="personal_data.js" server="dujin.120fd.cn.a.b" local="131876736597759018" remote="131876736600000000" Dst="0" />
-<file name="create-order.js" server="djback.120fd.cn.a.o" local="131879434205885907" remote="131879443200000000" Dst="0" />
-<file name="douspeed.js" server="djback.120fd.cn.a.o" local="131877918221240141" remote="131877874200000000" Dst="0" />
-<file name="login.js" server="djback.120fd.cn.a.o" local="131880355726244216" remote="131880358800000000" Dst="0" />
+<file name="create-order.js" server="djback.120fd.cn.a.o" local="131880475677650567" remote="131880475200000000" Dst="0" />
+<file name="douspeed.js" server="djback.120fd.cn.a.o" local="131880490450166066" remote="131878460400000000" Dst="0" />
+<file name="login.js" server="djback.120fd.cn.a.o" local="131880490492819925" remote="131880358800000000" Dst="0" />
 <file name="order_center.js" server="djback.120fd.cn.a.o" local="131880132324131530" remote="131880133200000000" Dst="0" />
 <file name="personal.js" server="djback.120fd.cn.a.o" local="131879475162470812" remote="131879475000000000" Dst="0" />
 <file name="order_details.js" server="djback.120fd.cn.a.o" local="131880132324141507" remote="131880133200000000" Dst="0" />
@@ -24,13 +24,13 @@
 <file name="personal_data.js" server="djback.120fd.cn.a.o" local="131879467563218509" remote="131879467800000000" Dst="0" />
 <file name="personal_password.js" server="djback.120fd.cn.a.o" local="131880200824231272" remote="131880358800000000" Dst="0" />
 <file name="create-order_copy.js" server="djback.120fd.cn.a.o" local="131876720351150551" remote="131876996400000000" Dst="0" />
-<file name="slide-check.js" server="djback.120fd.cn.a.o" local="131877918290471321" remote="131876997600000000" Dst="0" />
-<file name="vue-2.x.js" server="djback.120fd.cn.a.o" local="131873405061706551" remote="131876996400000000" Dst="0" />
-<file name="speed-effect.js" server="djback.120fd.cn.a.o" local="131877918292310095" remote="131877820200000000" Dst="0" />
-<file name="jquery-1.11.3.min.js" server="djback.120fd.cn.a.o" local="131877918223998394" remote="131876997600000000" Dst="0" />
-<file name="jquery-migrate.js" server="djback.120fd.cn.a.o" local="131877918224458248" remote="131876997600000000" Dst="0" />
-<file name="jquery.transit.min.js" server="djback.120fd.cn.a.o" local="131877918226157151" remote="131876997600000000" Dst="0" />
-<file name="slick.js" server="djback.120fd.cn.a.o" local="131865682884878397" remote="131876996400000000" Dst="0" />
-<file name="jquery-1.10.1.min.js" server="djback.120fd.cn.a.o" local="131865682881980054" remote="131876996400000000" Dst="0" />
+<file name="slide-check.js" server="djback.120fd.cn.a.o" local="131880490499283340" remote="131876997600000000" Dst="0" />
+<file name="vue-2.x.js" server="djback.120fd.cn.a.o" local="131880490500376979" remote="131876996400000000" Dst="0" />
+<file name="speed-effect.js" server="djback.120fd.cn.a.o" local="131880490499595789" remote="131878478400000000" Dst="0" />
+<file name="jquery-1.11.3.min.js" server="djback.120fd.cn.a.o" local="131880490468819176" remote="131876997600000000" Dst="0" />
+<file name="jquery-migrate.js" server="djback.120fd.cn.a.o" local="131880490475284885" remote="131876997600000000" Dst="0" />
+<file name="jquery.transit.min.js" server="djback.120fd.cn.a.o" local="131880490481952548" remote="131876997600000000" Dst="0" />
+<file name="slick.js" server="djback.120fd.cn.a.o" local="131880490497537862" remote="131876996400000000" Dst="0" />
+<file name="jquery-1.10.1.min.js" server="djback.120fd.cn.a.o" local="131880490463657264" remote="131876996400000000" Dst="0" />
 <file name="company_auth.js" server="djback.120fd.cn.a.o" local="131879543033111717" remote="131879598600000000" Dst="0" />
 </dwsync>

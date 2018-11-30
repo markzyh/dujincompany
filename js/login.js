@@ -269,7 +269,7 @@ function checkUserIsLogin() {
 	//获取用户信息
 	if (getUsermessage()) { //如果返回一个对象,则已经登录过了
 		var nowDate = new Date().getTime() //获取页面加载时的时间
-		var lifeDay = 2 * 60 * 60 * 1000 //两小时过期
+		var lifeDay = 1 * 24 * 60 * 60 * 1000 //过期的天数
 		var lifeTime = nowDate - getUsermessage().setDate
 		if (lifeTime > lifeDay) {
 			clearUserMessage() //清除用户保存的信息,清除localStroage

@@ -3,76 +3,60 @@
 
 <head>
     <meta charset="utf-8">
-    <title>新建计划</title>
+    <title>投放计划</title>
     <link href="css/create_order.css" rel="stylesheet" type="text/css">
     <link href="css/public.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/vue-2.x.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ToSGheFCFzLkkoCv2BfxvYNt"></script>
 </head>
+
 <body>
     <!-- 登录注册模块 -->
     <div class="flied_tc">
         <div class="close_login_form" onclick="hideLoginForm()">x</div>
         <div class="flied_td">
-            <h4 class="login_title"><span class="choosed">快速登录</span><span>新用户注册</span></h4>
-            <form class="login_form show">
+            <h4>快速登录</h4>
+            <form method="post">
                 <div class="flied_te">
+                    <!--<img src="http://www.dujin021.com/images/ion_yzma.png" alt=""> -->
                     <input type="tel" id="userphone" placeholder="输入手机号">
                 </div>
-                <div class="flied_te">
-                    <input type="password" id="userpassword" placeholder="输入密码">
+                <div class="flied_tf">
+                    <div id="slider2" class="slider"></div>
+                </div>
+                <div class="flied_tg cl">
+                    <input class="flied_th fl" type="text" placeholder="验证码" id="check_code">
+                    <input class="flied_ti fr" type="button" value="获取手机验证码" disabled="disabled" id="get_check" onclick="getCheckNumber()">
                 </div>
                 <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
-            </form>
-            <form class="login_form register_form">
-                <div class="flied_te">
-                    <input type="tel" id="registerPhone" placeholder="输入手机号">
-                </div>
-                <div class="flied_te">
-                    <input type="password" id="registerPassword" placeholder="请输入密码">
-                </div>
-                <div class="flied_te">
-                    <input type="password" id="confirmRegisterPassword" placeholder="请再次输入密码">
-                </div>
-                <div class="flied_te">
-                    <input type="text" id="imgCheckCode" placeholder="请输入图形验证码" class="partinput" onchange="letGetPhoneCode()"><img
-                        src="" id="imgCheckCodeUrl" alt="" srcset="" onclick="getCheckCode()">
-                </div>
-                <div class="flied_te">
-                    <input type="text" id="getphone_code" placeholder="请输入手机验证码" class="partinput"><input
-                        class="getphone_code" name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
-                </div>
-                <input class="flied_tj" type="button" value="立即注册" onclick="userRegister()">
             </form>
         </div>
     </div>
     <!-- 登录注册模块 end-->
     <div id="dymain">
         <div class="dymain_cover" v-if="isPaySuccess"></div>
-        <div class="pay_success" v-if="isPaySuccess" :class="{show:isPaySuccess}">
+        <div class="pay_success" v-if="isPaySuccess">
             <h3><img src="images/pay_success_03.jpg" alt="">投放成功</h3>
             <h4><span>{{computedCountDownNumber}}秒</span>后将跳转到订单中心</h4>
             <div class="pay_success_tips">
                 <h5>温馨提示</h5>
                 <p>1.请在安全网络环境下进行金钱支付，以防账号被盗</p>
-                <p>2.本次交易解释权归上海度进信息科技有限公司所有</p>
+                <p>2.本次交易解释权归度进科技有限公司所有</p>
             </div>
-        </div>
+        </div>      
         <div class="htHeader">
             <div class="htHeader_con">
                 <div class="ht_logo fl"><img src="images/ht_logo.png" alt=""></div>
                 <div class="ht_nav fl">
-                    <li><a href="personal_center.html">首页</a></li>
-                    <li><a href="http://www.dujin021.com/douyin">抖音运营</a></li>
-                    <li><a href="/">DOU+加速</a></li>
-                    <li><a href="http://www.dujin021.com/about">关于我们</a></li>
-                    <li><a href="http://www.dujin021.com/contact/1.html">常见问题</a></li>
+                    <li><a href="">首页</a></li>
+                    <li><a href="">抖音运营</a></li>
+                    <li><a href="">DOU+加速</a></li>
+                    <li><a href="">关于我们</a></li>
                 </div>
                 <div class="ht_person fr">
-                    <div class="user_is_login"><img src="images/ht_yh_icon.png" alt=""><span class="user_login_name">倒影年华</span>
-                        &nbsp;&nbsp; |
+                    <div class="user_is_login"><img src="images/ht_yh_icon.png"
+                            alt=""><span class="user_login_name">倒影年华</span> &nbsp;&nbsp; |
                         &nbsp;&nbsp; <span onclick="userLoginOut()">退出</span>
                     </div>
                     <div class="user_isnot_login show" onclick="openUserLogin()">注册/登录</div>
@@ -83,36 +67,31 @@
             <div class="ht_contentC dy-nav">
                 <ul class="ht_content_ul">
                     <li>
-                        <a href="personal_center.html">
-                            <i></i>用户中心
-                        </a>
+                       <a href="/personal_center">
+                        <i></i>用户中心
+                        
                     </li>
                     <li class="selected">
-                        <a href="create_order.html">
-                            <i></i>新建计划</a>
+                       <a href="/create_order">
+                        <i></i>投放计划
+						</a>
+                    </li>
+                    <li >
+                       <a href="/order_center">
+                        <i></i>订单中心
+						</a>
                     </li>
                     <li>
-                        <a href="order_center.html">
-                            <i></i>订单中心
-                        </a>
-                    </li>
-                    <li>
-                        <a href="personal.html">
-                            <i></i>充值与消费
-                        </a>
+                       <a href="/personal/">
+                        <i></i>充值与消费
+						</a>
                     </li>
                     <li>
                         <i></i>个人资料
                     </li>
-                    <li class="child"><a href="personal_data.html"><i></i>资料编辑</a></li>
-                    <li class="child"><a href="personal_cellphone.html"><i></i>修改手机号码</a></li>
-                    <li class="child"><a href="personal_password.html"><i></i>修改密码</a></li>
-                    <li class="official"><i></i>增值服务</li>
-                    <li class="child"><a href="company_auth.html"><i></i>企业认证</a></li>
-                    <li class="child"><a><i></i>商品分享功能</a></li>
-                    <li class="child"><a><i></i>直播权限</a></li>
-                    <li class="child"><a><i></i>60秒权限</a></li>
-                    <li><a href="common_problem.html" class="show_problem "><i></i>常见问题</a></li>
+					<li><a href="/personal/personal_data"><i></i>资料编辑</a></li>
+					<li ><a href="/personal/personal_cellphone"><i></i>修改手机号码</a></li>
+                    <li><a href="/personal/personal_password"><i></i>修改密码</a></li>
                 </ul>
             </div>
             <div class="dy-content create_box">
@@ -121,18 +100,10 @@
                     <div class="order_link">
                         <label for="order_link">
                             投放内容
-                            <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
-                                <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
-                                        alt="" class="order_tips_description_tri"><b>您要投放的链接</b>打开您想要投放的视频，<strong>选择“分享到
-                                        复制链接”</strong>，将<strong>删除文字后的链接</strong>粘贴到下框。</div>
-                            </div>
                         </label>
                         <input type="text" id="order_link" name="order_link" v-model="orderLink" class="order_link_value"
                             @focus="inputFocus" @blur="inputBlur" />
-                        <p class="create_usermessage">
-                            <span>抖音昵称：{{userName}}</span><span>抖音号：{{douyinId}}</span></p>
                     </div>
-
                     <div class="order_type">
                         <label for="order_typename">
                             把视频推荐给潜在兴趣用户
@@ -142,7 +113,7 @@
                             </div>
                         </label>
                         <div class="order_typename_group" v-for="(item,index) in orderTypeLists" :key="index">
-                            <input type="radio" name="orderType" :value="item.name" :class="{radio_checked:nowIndex === index}"
+                            <input type="radio" name="orderType" v-model="orderTypeName" :class="{radio_checked:nowIndex === index}"
                                 @click="chooseOrderType(index)" /><span>{{item.name}}
                                 <img src="images/order_tips_description_tri.jpg" alt="" class="order_tips_description_tri"
                                     v-if="nowIndex === index && nowIndex != 0" :class="{show:nowIndex === index}">
@@ -163,18 +134,17 @@
                                         <div v-for="(item,index) in regionLists" :key="index" class="region_btn_pos">
                                             <div class="customtype_form_btn" :class="{checked:userRegionIndex === index}"
                                                 @click="chooseRegion(index,'userRegionIndex','regionLists')">{{item}}</div>
-                                            <div class="order_provice" v-if="isShowProvince && userRegionIndex === index"
-                                                :class="{nearby:userRegionIndex === 4}"><img src="images/order_tips_description_tri.jpg"
-                                                    alt="" class="order_tips_description_tri">
+                                            <div class="order_provice" v-if="isShowProvince && userRegionIndex === index"><img
+                                                    src="images/order_tips_description_tri.jpg" alt="" class="order_tips_description_tri">
                                                 <h3>{{chooseRegionTitle}}</h3>
                                                 <!-- 省部分 -->
-                                                <div class="provice_name_lists" v-if="index === 1 || index === 2 || index === 3">
+                                                <div class="provice_name_lists">
                                                     <div v-for="(item,index) in proviceLists" :key="index" class="provice_name"><b
                                                             @click="chooseProvice(index)" :class="{checked:chooseProviceIndex === index}">{{item.name}}</b>
                                                     </div>
                                                 </div>
                                                 <!-- 市部分 -->
-                                                <div class="provice_cities" v-if="index === 1 || index === 2 || index === 3">
+                                                <div class="provice_cities">
                                                     <!-- 市 -->
                                                     <div class="" v-for="(item,index) in proviceLists" :key="index"
                                                         v-if="chooseProviceIndex === index">
@@ -226,38 +196,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- 附近部分 -->
-                                                <div class="province_nearby" v-if="index === 4">
-                                                    <!-- <input type="text" class="input_address" v-model="userInputAddressName"
-                                                        @change="userInputAddress"><input type="button" onclick="localMap();"
-                                                        value="添加" class="add_input_address"> -->
-                                                    <input type="text" class="input_address" v-model="userInputAddressName"><input
-                                                        type="button" value="确认" class="add_input_address" @click="userInputAddress">
-                                                    <p>设置投放半径</p>
-                                                    <div id="dist-sel">
-                                                        <div class="dis-inline nearby_group" v-for="(item,index) in customRangeLists"
-                                                            :class="{checked:choosedRangeIndex === index,outchecked:choosedRangeIndex > index}"><input
-                                                                type="radio" name="RadioGroup1" :value="choosedRangeValue"
-                                                                id="RadioGroup1_0" @click="chooseNearbyKm(index)"
-                                                                @change="showRange" :checked="choosedRangeIndex === index">
-                                                            <div class="nearby_km">{{item.name}}</div>
-                                                            <h6 v-if="index != 4"></h6>
-                                                        </div>
-                                                        <div class="add_nearby_km dis-inline" @click="addNearbyKmList">{{addNearbyKm}}</div>
-                                                        <!-- <input type="radio" name="RadioGroup1" value="4000" id="RadioGroup1_0" checked>4km
-                                                            <input type="radio" name="RadioGroup1" value="6000" id="RadioGroup1_1">6km
-                                                            <input type="radio" name="RadioGroup1" value="8000" id="RadioGroup1_2">8km -->
-                                                    </div>
-                                                    <div id="allmap" ref="allmap"></div>
-                                                    <!-- <p class="submit_address"><span>地址:</span><input type="text" v-model="submitAddress"></p>
-                                                    <p><span v-for="(item,index) in submitAddressRangeList">{{item.name}}</span></p> -->
-                                                </div>
-                                                <div class="region_choosed" v-if="index != 4">
+                                                <div class="region_choosed">
                                                     已选：{{choosedValue}}
-                                                    <!-- <span v-for="(item,index) in "></span>  -->
-                                                </div>
-                                                <div class="region_choosed" v-if="index === 4">
-                                                    已选区域：<span v-for="(item,index) in choosedNearbyLists" v-if="choosedNearbyLists.length >= 0">{{item.name}}{{item.km}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                     <!-- <span v-for="(item,index) in "></span>  -->
                                                 </div>
                                                 <div class="confirm_provice" @click="confirmProvice(index)">
@@ -266,9 +206,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="order_choosed_params">已选择<span>性别 : {{choosedSex}}</span><span>年龄 :
-                                            {{choosedAge.toString()}}</span><span>地域 :
-                                            {{choosedValue}}</span></div>
                                 </div>
                             </transition>
                         </div>
@@ -289,13 +226,6 @@
                         </label>
                     </div>
                     <div class="order_price">
-                        <label for="order_increment">
-                            投放金额
-                            <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
-                                <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
-                                        alt="" class="order_tips_description_tri"><b>投放金额</b>投放金额为此次投放的最大消耗值，系统会尽可能100%投放完成。但投放过程中若遇到如视频删除／设好友可见或私密／人工举报／投放效率不佳，系统会自动结束投放。剩余未消耗的金额将3～48小时可退回到您的账户中心。</div>
-                            </div>
-                        </label>
                         <div class="order_typename_group" v-for="(item,index) in PayLists">
                             <input type="radio" name="orderType" :class="{radio_checked:nowPayIndex === index}" @click="choosePayNumber(index)"><span>{{item.name}}<img
                                     src="images/order_tips_description_tri.jpg" alt="" class="order_tips_description_tri show"
@@ -303,7 +233,7 @@
                             <div class="customtype_form show" v-if="nowPayIndex === 1 && index === 1">
                                 <h3>自定义金额</h3>
                                 <input v-model="customPayNumber" @focus="inputFocus" @blur="inputBlur">
-                                <h6>金额在{{limitMoney}}~500000之间，且为100的倍数</h6>
+                                <h6>金额在100~500000之间，且为100的倍数</h6>
                                 <h5 @click="confirmCustomPay">确定</h5>
                             </div>
                         </div>
@@ -320,7 +250,6 @@
     </div>
     <script src="js/slide-check.js"></script>
     <script src="js/login.js"></script>
-    <script src="js/create-order.js"></script>
+    <script src="js/create-order.js"></script>    
 </body>
-
 </html>
