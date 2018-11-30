@@ -300,8 +300,9 @@
 <file name="video1.jpg" server="djback.120fd.cn.a.o" local="131879266207153655" remote="131877697800000000" Dst="0" />
 <file name="video2.jpg" server="djback.120fd.cn.a.o" local="131879266208742755" remote="131877697800000000" Dst="0" />
 <file name="video3.jpg" server="djback.120fd.cn.a.o" local="131879266208742755" remote="131877698400000000" Dst="0" />
-<file name="video4.jpg" server="djback.120fd.cn.a.o" local="131879266210032015" remote="131877700200000000" Dst="0" />
-<file name="video5.jpg" server="djback.120fd.cn.a.o" local="131879266211441218" remote="131877700200000000" Dst="0" />
+<file name="video4.jpg" server="djback.120fd.cn.a.o" local="131880375782866435" remote="131880385200000000" Dst="0" />
+<file name="video5.jpg" server="djback.120fd.cn.a.o" local="131880375730008330" remote="131880385200000000" Dst="0" />
 <file name="province_nearby_mapicon.png" server="djback.120fd.cn.a.o" local="131879266188543747" remote="131878447800000000" Dst="0" />
 <file name="province_nearby_choosed.png" server="djback.120fd.cn.a.o" local="131879266186904700" remote="131878447800000000" Dst="0" />
+<file name="login_form_password.png" server="djback.120fd.cn.a.o" local="131880289563755727" remote="131880289800000000" Dst="0" />
 </dwsync>

@@ -172,7 +172,7 @@
         </div>
     </div>
     <!-- 登录注册模块 -->
-    <div class="flied_tc">
+    <!-- <div class="flied_tc">
         <div class="close_login_form" onclick="hideLoginForm()">x</div>
         <div class="flied_td">
             <h4>快速登录</h4>
@@ -190,9 +190,46 @@
                 <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
             </form>
         </div>
+    </div> -->
+    <!-- 登录注册模块 end-->
+    <!-- 登录注册模块 -->
+    <div class="flied_tc">
+        <div class="close_login_form" onclick="hideLoginForm()">x</div>
+        <div class="flied_td">
+            <h4 class="login_title"><span class="choosed">快速登录</span><span>新用户注册</span></h4>
+            <form class="login_form show">
+                <div class="flied_te">
+                    <input type="tel" id="userphone" placeholder="输入手机号">
+                </div>
+                <div class="flied_te">
+                    <input type="password" id="userpassword" placeholder="输入密码">
+                </div>
+                <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
+            </form>
+            <form class="login_form register_form">
+                <div class="flied_te">
+                    <input type="tel" id="registerPhone" placeholder="输入手机号">
+                </div>
+                <div class="flied_te">
+                    <input type="password" id="registerPassword" placeholder="请输入密码">
+                </div>
+                <div class="flied_te">
+                    <input type="password" id="confirmRegisterPassword" placeholder="请再次输入密码">
+                </div>
+                <div class="flied_te">
+                    <input type="text" id="imgCheckCode" placeholder="请输入图形验证码" class="partinput" onchange="letGetPhoneCode()"><img
+                        src="" id="imgCheckCodeUrl" alt="" srcset="" onclick="getCheckCode()">
+                </div>
+                <div class="flied_te">
+                    <input type="text" id="confirmRegisterPassword" placeholder="请输入手机验证码" class="partinput"><input
+                        class="getphone_code" name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
+                </div>
+                <input class="flied_tj" type="button" value="立即注册" onclick="userRegister()">
+            </form>
+        </div>
     </div>
     <!-- 登录注册模块 end-->
-    <script src="js/slide-check.js"></script>
+    <!--     <script src="js/slide-check.js"></script> -->
     <div id="fullPage">
         <div class="section">
             <div class="speed_flex">
@@ -328,7 +365,7 @@
                                 <div class="item d6">
                                     <div class="txt">
                                         <strong class="clickBtn" onclick="openCreateOrder()">
-                                             母婴保健
+                                            母婴保健
                                         </strong>
                                         <br>
                                         <span>
@@ -347,11 +384,11 @@
                                         </span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="item d7">
                                     <div class="txt">
                                         <strong class="clickBtn" onclick="openCreateOrder()">
-                                           招商加盟
+                                            招商加盟
                                         </strong>
                                         <br>
                                         <span>
@@ -373,7 +410,7 @@
 
                             </div>
                         </div>
-                        
+
                     </div>
                     <script type="text/javascript">
                         $(function () {
@@ -424,7 +461,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--照片墙-->
         <div class="section">
             <div class="speed_flex">
@@ -433,7 +470,7 @@
                         <div class="speed_common_title">
                             <h2>DOU+加速经典案例</h2>
                             <p>
-                                企业的精准营销平台，延展品牌IP定位
+                                助力企业营销新趋势、获取新商机红利
                             </p>
                         </div>
                         <div class="photo_wall">
@@ -443,15 +480,15 @@
                                         <!--[if IE]> 
 										<script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
 									<![endif]-->
-                                       <img src="images/video1.jpg" alt="" class="imgs" />
+                                        <img src="images/video1.jpg" alt="" class="imgs" />
                                         <div class="videoBox">
-                                           <video class="videoPla" src="/video/dy1.mp4">
-                                            您的浏览器不支持播放此视频。
-                                        	</video>
-                                       		<img src="/images/play.png" alt="" class="playBtn">
+                                            <video class="videoPla" src="/video/dy1.mp4">
+                                                您的浏览器不支持播放此视频。
+                                            </video>
+                                            <img src="/images/play.png" alt="" class="playBtn">
                                         </div>
-                                    
-<!--
+
+                                        <!--
                                         <video poster="images/video1.jpg" src="/video/dy1.mp4" controls style="width:100%;">
                                             您的浏览器不支持播放此视频。
                                         </video>
@@ -459,22 +496,22 @@
                                         <div class="bots comBg"></div>
 -->
 
-                                    
+
 
                                     </div>
                                 </li>
                                 <li>
                                     <div class="show_wall">
-                                       
-                                       <img src="images/video2.jpg" alt="" class="imgs" />
+
+                                        <img src="images/video2.jpg" alt="" class="imgs" />
                                         <div class="videoBox">
-                                           <video class="videoPla" src="/video/dy2.mp4">
-                                            您的浏览器不支持播放此视频。
-                                        	</video>
-                                       		<img src="/images/play.png" alt="" class="playBtn">
+                                            <video class="videoPla" src="/video/dy2.mp4">
+                                                您的浏览器不支持播放此视频。
+                                            </video>
+                                            <img src="/images/play.png" alt="" class="playBtn">
                                         </div>
-                                        
-<!--
+
+                                        <!--
                                         <video poster="images/video2.jpg" src="/video/dy2.mp4" controls style="width:100%;">
                                             您的浏览器不支持播放此视频。
                                         </video>
@@ -486,16 +523,16 @@
                                 </li>
                                 <li>
                                     <div class="show_wall">
-                                       
-                                       <img src="images/video3.jpg" alt="" class="imgs" />
+
+                                        <img src="images/video3.jpg" alt="" class="imgs" />
                                         <div class="videoBox">
-                                           <video class="videoPla" src="/video/dy3.mp4">
-                                            您的浏览器不支持播放此视频。
-                                        	</video>
-                                       		<img src="/images/play.png" alt="" class="playBtn">
+                                            <video class="videoPla" src="/video/dy3.mp4">
+                                                您的浏览器不支持播放此视频。
+                                            </video>
+                                            <img src="/images/play.png" alt="" class="playBtn">
                                         </div>
-                                        
-<!--
+
+                                        <!--
                                         <video poster="images/video3.jpg" src="/video/dy3.mp4" controls style="width:100%;">
                                             您的浏览器不支持播放此视频。
                                         </video>
@@ -507,15 +544,15 @@
                                 </li>
                                 <li>
                                     <div class="show_wall">
-                                       <img src="images/video4.jpg" alt="" class="imgs" />
+                                        <img src="images/video4.jpg" alt="" class="imgs" />
                                         <div class="videoBox">
-                                           <video class="videoPla" src="/video/dy4.mp4">
-                                            您的浏览器不支持播放此视频。
-                                        	</video>
-                                       		<img src="/images/play.png" alt="" class="playBtn">
+                                            <video class="videoPla" src="/video/dy4.mp4">
+                                                您的浏览器不支持播放此视频。
+                                            </video>
+                                            <img src="/images/play.png" alt="" class="playBtn">
                                         </div>
-                                        
-<!--
+
+                                        <!--
                                         <video poster="images/video4.jpg" src="/video/dy4.mp4" controls style="width:100%;">
                                             您的浏览器不支持播放此视频。
                                         </video>
@@ -527,15 +564,15 @@
                                 </li>
                                 <li>
                                     <div class="show_wall">
-                                       <img src="images/video5.jpg" alt="" class="imgs" />
+                                        <img src="images/video5.jpg" alt="" class="imgs" />
                                         <div class="videoBox">
-                                           <video class="videoPla" src="/video/dy5.mp4">
-                                            您的浏览器不支持播放此视频。
-                                        	</video>
-                                       		<img src="/images/play.png" alt="" class="playBtn">
+                                            <video class="videoPla" src="/video/dy5.mp4">
+                                                您的浏览器不支持播放此视频。
+                                            </video>
+                                            <img src="/images/play.png" alt="" class="playBtn">
                                         </div>
-                                        
-<!--
+
+                                        <!--
                                         <video poster="images/video5.jpg" src="/video/dy5.mp4" controls style="width:100%;">
                                             您的浏览器不支持播放此视频。
                                         </video>
@@ -556,8 +593,8 @@
 
 
         </div>
-        
-        
+
+
         <!--pk-->
         <div class="section">
             <div class="speed_flex">
@@ -657,7 +694,7 @@
             </div>
         </div>
 
-		<!--小红书-->
+        <!--小红书-->
         <div class="section">
             <div class="speed_flex speed_intro_wide">
                 <div class="speed_intro">
@@ -751,23 +788,23 @@
                 </div>
             </div>
         </div>
-        
+
         <!--wm版块-->
         <div class="section">
             <div class="speed_flex">
                 <div class="wrap f2-bg" id="actF2Bg">
                     <div class="g-box">
                         <dl class="m-dl2">
-                          	
-                           	<div class="title1128">
-								<div class="m-dt-t1">
-									DOU+加速营销助力解决行业痛点
-								</div>
-								<div class="m-dt-t2 g-mb80">
-									精准的行业大数据应用，为解决行业痛点发力
-								</div>
+
+                            <div class="title1128">
+                                <div class="m-dt-t1">
+                                    DOU+加速营销助力解决行业痛点
+                                </div>
+                                <div class="m-dt-t2 g-mb80">
+                                    精准的行业大数据应用，为解决行业痛点发力
+                                </div>
                             </div>
-                            
+
                             <dd class="clear">
                                 <div class="f-fl f2-l fl">
                                     <ul class="f2-lul" id="actF2">
@@ -807,12 +844,12 @@
                                         <p class="s-fs26 f-ib">
                                             电商红利消褪
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '电商'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '电商'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '电商'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '电商'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -874,58 +911,58 @@
                                                 </p>
                                             </li>
                                         </ul>
-                                        
-										<p class="p1127">合作客户</p>
-										<ul class="f2-rul1">
-												<li>
-													<img src="images/f2_ds_ahs.png" width="180px" alt="" />
-													<div class="f2-rul1-qr">
-														<img src="images/f2_ds_ahs_qr.png" width="180px" alt="" />
-														<p>
-															爱华仕
-														</p>
-													</div>
-												</li>
-												<li>
-													<img src="images/f2_ds_bwc.png" width="180px" alt="" />
-													<div class="f2-rul1-qr">
-														<img src="images/f2_ds_bwc_qr.png" width="180px" alt="" />
-														<p>
-															百味草
-														</p>
-													</div>
-												</li>
-												<li>
-													<img src="images/f2_ds_yjdkd.png" width="180px" alt="" />
-													<div class="f2-rul1-qr">
-														<img src="images/f2_ds_yjdkd_qr.png" width="180px" alt="" />
-														<p>
-															妖精的口袋
-														</p>
-													</div>
-												</li>
-												<li>
-													<img src="images/f2_ds_playboy.png" width="180px" alt="" />
-													<div class="f2-rul1-qr">
-														<img src="images/f2_ds_playboy_qr.png" width="180px" alt="" />
-														<p>
-															PLAYBOY
-														</p>
-													</div>
-												</li>
-											</ul>
+
+                                        <p class="p1127">合作客户</p>
+                                        <ul class="f2-rul1">
+                                            <li>
+                                                <img src="images/f2_ds_ahs.png" width="180px" alt="" />
+                                                <div class="f2-rul1-qr">
+                                                    <img src="images/f2_ds_ahs_qr.png" width="180px" alt="" />
+                                                    <p>
+                                                        爱华仕
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <img src="images/f2_ds_bwc.png" width="180px" alt="" />
+                                                <div class="f2-rul1-qr">
+                                                    <img src="images/f2_ds_bwc_qr.png" width="180px" alt="" />
+                                                    <p>
+                                                        百味草
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <img src="images/f2_ds_yjdkd.png" width="180px" alt="" />
+                                                <div class="f2-rul1-qr">
+                                                    <img src="images/f2_ds_yjdkd_qr.png" width="180px" alt="" />
+                                                    <p>
+                                                        妖精的口袋
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <img src="images/f2_ds_playboy.png" width="180px" alt="" />
+                                                <div class="f2-rul1-qr">
+                                                    <img src="images/f2_ds_playboy_qr.png" width="180px" alt="" />
+                                                    <p>
+                                                        PLAYBOY
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <!--餐饮-->
                                     <div class="f2-item">
                                         <p class="s-fs26 f-ib">
                                             成本高，运营效率低下
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '餐饮'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '餐饮'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '餐饮'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '餐饮'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -956,7 +993,7 @@
                                                     </i>
                                                 </p>
                                                 <p class="g-mt14">
-                                                     方向不明
+                                                    方向不明
                                                 </p>
                                             </li>
                                             <li>
@@ -965,7 +1002,7 @@
                                                     </i>
                                                 </p>
                                                 <p class="g-mt14">
-                                                     模式不清
+                                                    模式不清
                                                 </p>
                                             </li>
                                             <li>
@@ -1050,16 +1087,17 @@
                                         <p class="s-fs26 f-ib">
                                             “多销”难以为继
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '零售'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '零售'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '零售'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '零售'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
-                                            利润下降 成本上升，流量少，线上及新零售业态不断分羹，缺乏数字化经营，商品研发效率过低，由于欠缺数字化工具的支持，难以将顾客的消费行为进行数据化，从而无法准确分析消费者偏好以上架更具针对性的产品
+                                            利润下降
+                                            成本上升，流量少，线上及新零售业态不断分羹，缺乏数字化经营，商品研发效率过低，由于欠缺数字化工具的支持，难以将顾客的消费行为进行数据化，从而无法准确分析消费者偏好以上架更具针对性的产品
                                         </p>
                                         <ul class="f2-rul">
                                             <li>
@@ -1180,18 +1218,18 @@
                                         <p class="s-fs26 f-ib">
                                             缺乏品牌定位
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '休娱'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '休娱'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '休娱'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '休娱'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
                                             没有打造代表作、缺标杆IP、缺乏品牌，缺乏众多内容和项目的整合，也缺乏相关的人才操作，缺乏对人文内涵以及文化IP的挖掘和打造，导致无法促进全产业链的延伸，最终难以形成引领全行业的“大格局”。
                                         </p>
-                                        <ul class="f2-rul" >
+                                        <ul class="f2-rul">
                                             <li>
                                                 <p>
                                                     <i class="f2-jck">
@@ -1246,7 +1284,7 @@
                                                     风险大
                                                 </p>
                                             </li>
-<!--
+                                            <!--
                                             <li>
                                                 <p>
                                                     <i class="f2-kptcz">
@@ -1303,12 +1341,12 @@
                                         <p class="s-fs26 f-ib">
                                             传统保守、急需转型
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '美业'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '美业'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '美业'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '美业'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -1369,7 +1407,7 @@
                                                     形象不佳
                                                 </p>
                                             </li>
-<!--
+                                            <!--
                                             <li>
                                                 <p>
                                                     <i class="f2-fxtx">
@@ -1427,12 +1465,12 @@
                                         <p class="s-fs26 f-ib">
                                             同质化严重成本过高
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '酒店'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '酒店'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '酒店'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '酒店'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -1502,7 +1540,7 @@
                                                     粘性低
                                                 </p>
                                             </li>
-<!--
+                                            <!--
                                             <li>
                                                 <p>
                                                     <i class="f2-kfxt">
@@ -1541,12 +1579,12 @@
                                         <p class="s-fs26 f-ib">
                                             单一的产品形式
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '教育'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '教育'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '教育'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '教育'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -1607,7 +1645,7 @@
                                                     营销困难
                                                 </p>
                                             </li>
-<!--
+                                            <!--
                                             <li>
                                                 <p>
                                                     <i class="f2-yxyy">
@@ -1673,12 +1711,12 @@
                                         <p class="s-fs26 f-ib">
                                             营销模式新拐点
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '房产'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '房产'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '房产'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '房产'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -1739,7 +1777,7 @@
                                                     模式单一
                                                 </p>
                                             </li>
-<!--
+                                            <!--
                                             <li>
                                                 <p>
                                                     <i class="f2-yxyy">
@@ -1796,12 +1834,12 @@
                                         <p class="s-fs26 f-ib">
                                             摄影行业营销方案
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '婚纱摄影'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '婚纱摄影'}">
                                             免费试用
                                         </a>
-                                        <aclass="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '婚纱摄影'}">
+                                        <aclass="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '婚纱摄影'}">
                                             查看详情
                                             </a>
                                             <p class="f2-bd g-lh15">
@@ -1917,12 +1955,12 @@
                                         <p class="s-fs26 f-ib">
                                             家装行业营销方案
                                         </p>
-                                        <aclass="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '装修'}">
+                                        <aclass="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '装修'}">
                                             免费试用
                                             </a>
-                                            <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                                data-wmdot-other="{ title: '装修'}">
+                                            <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()"
+                                                data-wmdot="tap" data-wmdot-id="detail" data-wmdot-other="{ title: '装修'}">
                                                 查看详情
                                             </a>
                                             <p class="f2-bd g-lh15">
@@ -2046,12 +2084,12 @@
                                         <p class="s-fs26 f-ib">
                                             汽车行业营销方案
                                         </p>
-                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail_rgst"
-                                            data-wmdot-other="{ title: '汽车'}">
+                                        <a class="f2-lnk f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail_rgst" data-wmdot-other="{ title: '汽车'}">
                                             免费试用
                                         </a>
-                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap" data-wmdot-id="detail"
-                                            data-wmdot-other="{ title: '汽车'}">
+                                        <a class="f2-lnk f2-lnk1 f-fr clickBtn" onclick="openCreateOrder()" data-wmdot="tap"
+                                            data-wmdot-id="detail" data-wmdot-other="{ title: '汽车'}">
                                             查看详情
                                         </a>
                                         <p class="f2-bd g-lh15">
@@ -2185,7 +2223,7 @@
                                 $(this).addClass('active').siblings().removeClass('active');
                                 $('#actF2Box .f2-item').eq(thisIndex).addClass('active').siblings().removeClass(
                                     'active');
-								
+
                                 var toAddClass = 'bg_' + thisIndex;
                                 $("#actF2Bg").addClass(toAddClass);
                             })
@@ -2376,54 +2414,54 @@
                 </div>
             </div>
             <div class="clear" style="clear: both"></div>
-       <div class="foonter_dya">
-        <div class="foonter_dyb mara cl">
-            <div class="foonter_dyc fl">
-                <div class="foonter_dyd"><img src="/images/team_11.png" alt=""> • 上海 </div>
-                <div class="foonter_dye">专业互联网营销解决方案服务商</div>
+            <div class="foonter_dya">
+                <div class="foonter_dyb mara cl">
+                    <div class="foonter_dyc fl">
+                        <div class="foonter_dyd"><img src="/images/team_11.png" alt=""> • 上海 </div>
+                        <div class="foonter_dye">专业互联网营销解决方案服务商</div>
+                    </div>
+                    <div class="foonter_dyf fl">
+                        <h4>商务合作</h4>
+                        <ul>
+                            <a href="">抖音运营</a>
+                            <a href="">DOU+加速</a>
+                            <a href="">托管运营</a>
+                            <a href="">网站建设</a>
+                            <a href="">SEO优化</a>
+                            <a href="">系统开发</a>
+                        </ul>
+                    </div>
+                    <div class="foonter_dyf fl">
+                        <h4>走进度进</h4>
+                        <ul>
+                            <a href="">关于度进</a>
+                            <a href="">典型案例</a>
+                            <a href="">度进服务</a>
+                            <a href="">营销学院</a>
+                            <a href="">度进新闻</a>
+                        </ul>
+                    </div>
+                    <div class="foonter_dyf fl chat">
+                        <h4>合作洽谈</h4>
+                        <ul>
+                            <a href="">QQ在线：<img src="/images/footer_QQ.png" alt=""></a>
+                        </ul>
+                        <ul>
+                            <a href="">合作邮箱：</a>
+                            <a href="">service@dujin021.com</a>
+                        </ul>
+                        <ul>
+                            <a href="">地址：</a>
+                            <a href="">上海宝山区逸仙路2816号B栋14楼</a>
+                        </ul>
+                        <p class="foonter_dyg">需求热线：</p>
+                        <img src="/images/team_12.png" alt="" srcset="">
+                    </div>
+                    <div class="foonter_dyh fr">
+                        扫一扫 手机浏览
+                    </div>
+                </div>
             </div>
-            <div class="foonter_dyf fl">
-                <h4>商务合作</h4>
-                <ul>
-                    <a href="">抖音运营</a>
-                    <a href="">DOU+加速</a>
-                    <a href="">托管运营</a>
-                    <a href="">网站建设</a>
-                    <a href="">SEO优化</a>                   
-                    <a href="">系统开发</a>
-                </ul>
-            </div>
-            <div class="foonter_dyf fl">
-                <h4>走进度进</h4>
-                <ul>
-                    <a href="">关于度进</a>
-                    <a href="">典型案例</a>
-                    <a href="">度进服务</a>
-                    <a href="">营销学院</a>
-                    <a href="">度进新闻</a>
-                </ul>
-            </div>
-            <div class="foonter_dyf fl chat">
-                <h4>合作洽谈</h4>
-                <ul>
-                    <a href="">QQ在线：<img src="/images/footer_QQ.png" alt=""></a>
-                </ul>
-                <ul>
-                    <a href="">合作邮箱：</a>
-                    <a href="">service@dujin021.com</a>
-                </ul>
-                <ul>
-                    <a href="">地址：</a>
-                    <a href="">上海宝山区逸仙路2816号B栋14楼</a>
-                </ul>
-                <p class="foonter_dyg">需求热线：</p>
-                <img src="/images/team_12.png" alt="" srcset="">
-            </div>
-            <div class="foonter_dyh fr">
-                    扫一扫  手机浏览
-            </div>
-        </div>
-    </div>
         </div>
 
 

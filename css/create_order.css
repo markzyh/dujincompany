@@ -190,7 +190,7 @@ dl.htlist_dla dd input[type='button'].disabled{background: #ebebeb;color: #fff;c
 dl.htlist_dla dd button.htlist_dle { cursor: pointer; margin-left: 127px; border: none; width: 124px; height: 40px; line-height: 40px; background: #eb5169; color: #fff; font-size: 20px; text-align: center; display: inline-block; border-radius: 5px; }
 
 /* 验证版块*/
-.flied_tc { background: #efefef; width: 526px; padding-top: 1px; position: fixed; top: 150px; left: 50%; padding-bottom: 126px; margin-left: -180px; z-index: 9999; display: none; }
+/* .flied_tc { background: #efefef; width: 526px; padding-top: 1px; position: fixed; top: 150px; left: 50%; padding-bottom: 126px; margin-left: -180px; z-index: 9999; display: none; }
 
 .flied_tc.show { display: block; }
 
@@ -214,20 +214,20 @@ input.flied_ti { border: 1px solid #bbbbbb; width: 178px; line-height: 49px; tex
 
 input.flied_ti.disable { background: #19be6b; }
 
-input.flied_ti::-webkit-input-placeholder { /* WebKit, Blink, Edge*/ color: #fff; }
+input.flied_ti::-webkit-input-placeholder {color: #fff; }
 
-input.flied_ti:-moz-placeholder { /* Mozilla Firefox 4 to 18*/ color: #fff; opacity: 1; }
+input.flied_ti:-moz-placeholder {  color: #fff; opacity: 1; }
 
-input.flied_ti::-moz-placeholder { /* Mozilla Firefox 19+*/ color: #fff; opacity: 1; }
+input.flied_ti::-moz-placeholder { color: #fff; opacity: 1; }
 
-input.flied_ti:-ms-input-placeholder { /* Internet Explorer 10-11*/ color: #fff; }
+input.flied_ti:-ms-input-placeholder {  color: #fff; }
 
-input.flied_ti::-ms-input-placeholder { /* Microsoft Edge*/ color: #fff; }
+input.flied_ti::-ms-input-placeholder { color: #fff; }
 
-input.flied_tj { width: 385px; height: 49px; border: none; background: #eb5169; color: #fff; cursor: pointer; margin-top: 38px; }
+input.flied_tj { width: 385px; height: 49px; border: none; background: #eb5169; color: #fff; cursor: pointer; margin-top: 38px; } */
 
 /*滑动*/
-.demo2 { width: 48%; height: 100%; float: right; padding: 20px; border: 1px dashed #fff; border-radius: 4px; box-sizing: border-box; position: relative; }
+/* .demo2 { width: 48%; height: 100%; float: right; padding: 20px; border: 1px dashed #fff; border-radius: 4px; box-sizing: border-box; position: relative; }
 
 .ui-slider-wrap { background: #e8e8e8; position: relative; }
 
@@ -243,10 +243,10 @@ input.flied_tj { width: 385px; height: 49px; border: none; background: #eb5169; 
 
 .ui-slider-btn.init.ui-slider-no-select.success { left: 344px !important; }
 
-.ui-slider-wrap .ui-slider-no-select { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none; }
+.ui-slider-wrap .ui-slider-no-select { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none; } */
 
 /* 注册 */
-.flied_zca { background: #efefef; width: 526px; padding-top: 1px; position: fixed; top: 150px; left: 50%; padding-bottom: 80px; margin-left: -180px; }
+/* .flied_zca { background: #efefef; width: 526px; padding-top: 1px; position: fixed; top: 150px; left: 50%; padding-bottom: 80px; margin-left: -180px; }
 
 .flied_zcb { margin-top: 18px; }
 
@@ -286,7 +286,7 @@ input.flied_zcf { border: 1px solid #bbbbbb; width: 178px; line-height: 49px; te
 
 input.flied_zcg { margin: 30px auto auto auto; display: block; width: 385px; height: 49px; border: none; background: #eb5169; color: #fff; cursor: pointer; }
 
-.close_login_form { position: absolute; right: 14px; top: 0; font-size: 26px; cursor: pointer; }
+.close_login_form { position: absolute; right: 14px; top: 0; font-size: 26px; cursor: pointer; } */
 
 /* 登录注册模块 ------------------------------------------------------------------------------------------------------------------------------------------*/
 body { background: #d3d3d3; }
@@ -578,3 +578,9 @@ input.syxy_input{width:19px;height:19px;border-radius: 50%;/* border:1px solid #
 .auth_choose_invoice .order_typename_group:last-child{width: 60%;}
 .auth_agree{justify-content: center;padding-left: 88px;}
 .auth_submit{justify-content: center;}
+
+/* 登录注册新 */
+.log_reg_panel{background: #fff;width: 570px;padding:30px;position: fixed;top:150px;left:50%;margin-left: -285px;z-index: 999;}
+.log_reg_panel h4{border-bottom: 1px solid #bbb;height: 55px;line-height: 60px;text-align: center;margin-bottom: 30px;font-size: 20px;font-weight: normal;}
+.log_reg_panel h4 span{display: inline-block;width: 50%;height: 100%;cursor: pointer;}
+.log_reg_panel h4 span.choosed{border-bottom: 2px solid #eb5169;vertical-align: top;margin-top: -1px;}

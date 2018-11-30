@@ -6,25 +6,194 @@ function getScreenHeight() {
 //点击登录弹出登录框
 function openUserLogin() {
 	$('.flied_tc').show('100')
+	getCheckCode() //获取图形验证码
 }
 
 function hideLoginForm() {
 	$('.flied_tc').hide()
 }
+//头部切换登录注册
+$(".login_title span").click(function () {
+	var index = $(this).index()
+	$(this).addClass('choosed').siblings().removeClass('choosed')
+	$('.login_form').eq(index).addClass('show').siblings().removeClass('show')
+	//alert($(this).index())
+})
+//获取验证码按钮不可点击
+//忘了为啥这么写
+function getCheckNumberDisable() {
+	$("#get_check").attr('disabled', false);
+	$("#get_check").addClass('disable');
+
+}
+
+//验证注册框
+function checkRegister() {
+	var registerPhone = $('#registerPhone').val(); //注册手机号
+	var registerPassword = $("#registerPassword").val() //注册密码
+	var confirmRegisterPassword = $("#confirmRegisterPassword").val() //再次确认密码
+	var imgCheckCode = $("#imgCheckCode").val() //图形验证码
+	//先验证手机号
+	if (checkPhone(registerPhone) == false) {
+		alert('请您输入正确的手机号')
+		return false
+	}
+	//再验证两次密码是否相同
+	if (registerPassword != confirmRegisterPassword) {
+		alert('您两次输入的密码不一致,请您重新输入')
+		return false
+	}
+	//最后非空验证
+	if (registerPhone == '' || registerPassword == "" || confirmRegisterPassword == '' || imgCheckCode == '') {
+		alert('您的信息没有填写完整,请您重新填写')
+		return false
+	} else {
+		return true
+	}
+}
+/* //验证图形验证码
+function checkImgCode(){
+	
+} */
+//onchange事件,可以获取手机验证码
+function letGetPhoneCode() {
+	if (checkRegister() == true) { //先验证非空,和手机号规则
+		$(".getphone_code").attr('disabled', false)
+		$(".getphone_code").removeClass('disabled')
+	}
+}
+//不可点击获取验证码按钮
+function letCheckNumberDisabled() {
+	$(".getphone_code").attr('disabled', true);
+	$(".getphone_code").addClass('disabled');
+}
+//获取手机验证码
+function getCheckNumber() {
+	checkRegister()
+	var registerPhone = $('#registerPhone').val();
+	var imgCheckCode = $('#imgCheckCode').val();
+	var Key = globalImgToken //自动生成的token
+	var Data = imgCheckCode
+	var data = {
+		Key: Key,
+		Data: Data
+	}
+	/* 	$("#get_check").removeClass('disable');
+		$("#get_check").attr('disabled', true); */
+	$.ajax({
+		url: 'http://dou.fudayiliao.com/account/GetSmsCode/' + registerPhone,
+		type: 'post',
+		data: JSON.stringify(data),
+		success: function (res) {
+			console.log('成功')
+			console.log(res)
+			if(res.Code == 1){
+				alert('验证码错误')
+				return false
+			}
+			letCheckNumberDisabled() //不可点击
+			btnSeconds($(".getphone_code"), '获取手机验证码') //按钮读秒
+		}
+	})
+}
+//获取短信按钮读秒
+function btnSeconds(attr, val) {
+	var num = 60,
+		tInterval;
+	tInterval = setInterval(function () {
+		attr.val(num + 's')
+		num--
+		if (num == -1) {
+			clearInterval(tInterval);
+			attr.val(val);
+			//$("#slider2").slider("restore"); //初始化
+		}
+	}, 1000)
+}
+//验证手机号码规则
+function checkPhone(phone) {
+	//var phone = document.getElementById('userphone').value;
+	if (!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))) {
+		//alert("手机号码有误，请重填");
+		//$("#slider2").slider("restore"); //初始化
+		return false;
+	} else {
+		//getCheckNumberDisable()
+		return true
+	}
+}
+//获取图形验证码
+var globalImgToken //全局的图形验证码token,全局是为了保持唯一性
+function getCheckCode() {
+	//var token = getUsermessage().token
+	//var imgCheckCodeUrl = $("#imgCheckCodeUrl").attr('src')
+	globalImgToken = createToken()
+	//this.createdToken = createdToken
+	var checkCode = 'http://dou.fudayiliao.com/account/getcode/' + globalImgToken //获取图形验证接口,返回图片链接
+	var imgCheckCodeUrl = checkCode.toString()
+	console.log(imgCheckCodeUrl)
+	$("#imgCheckCodeUrl").attr('src', imgCheckCodeUrl)
+	//console.log(this.checkCodeUrl)
+}
+//自定义token,用来获取图形验证码
+function createToken() {
+	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+		var r = Math.random() * 16 | 0,
+			v = c == 'x' ? r : (r & 0x3 | 0x8);
+		//console.log(v.toString(16))
+		return v.toString(16);
+	});
+}
+//注册确认
+function userRegister() {
+	if (checkRegister() == true) { //表单验证
+		var registerPhone = $('#registerPhone').val(); //注册手机号
+		var registerPassword = $("#registerPassword").val() //注册密码
+		var phoneCode = $("#confirmRegisterPassword").val()
+		var data = {
+			Phone: registerPhone,
+			Password: registerPassword,
+			Code:phoneCode
+		}
+		$.ajax({
+			url: 'http://dou.fudayiliao.com//account/register',
+			type: 'post',
+			dataType: 'json',
+			data: JSON.stringify(data),
+			success:function(res){
+				console.log(res)
+				if(res.Code == 13){
+					alert('该手机号已经注册')
+					return false
+				}else{
+					alert('注册成功')
+					window.location.href = '/personal_data.html'
+				}
+				
+			}
+		})
+	}
+}
 //登录确认
 function userLogin() {
 	var Phone = $("#userphone").val();
-	var Code = $('#check_code').val();
-	var dataVal = {};
-	dataVal.Phone = Phone;
-	dataVal.Code = Code;
+	/* var Code = $('#check_code').val(); */
+	var Password = $('#userpassword').val();
+	var dataVal = {
+		Phone: Phone,
+		Password: Password
+	};
 	$.ajax({
-		url: 'http://dou.fudayiliao.com/account/register',
+		url: 'http://dou.fudayiliao.com/account/login',
 		type: 'post',
 		//contentType:'application/json',
 		dataType: 'json',
 		data: JSON.stringify(dataVal),
 		success: function (res) {
+			if (res.Code == 1) {
+				alert('账号或密码错误!')
+				return false
+			}
 			hideLoginForm(); //隐藏登录框
 			console.log(res)
 			//app.data.userIsLogin = true
@@ -41,7 +210,7 @@ function userLogin() {
 				cellphoneNumber: cellphoneNumber,
 				douyinId: douyinId
 			}
-			setUserMessage('userMessage', userMessageObj)//本地存储用户信息
+			setUserMessage('userMessage', userMessageObj) //本地存储用户信息
 			console.log(localStorage)
 			checkUserIsLogin() //开始检测是否存入本地存储中,如果存入拿出用户名
 			//openCreateOrder()//都加速页面,判断
@@ -100,7 +269,7 @@ function checkUserIsLogin() {
 	//获取用户信息
 	if (getUsermessage()) { //如果返回一个对象,则已经登录过了
 		var nowDate = new Date().getTime() //获取页面加载时的时间
-		var lifeDay = 1 * 24 * 60 * 60 * 1000 //过期的天数
+		var lifeDay = 2 * 60 * 60 * 1000 //两小时过期
 		var lifeTime = nowDate - getUsermessage().setDate
 		if (lifeTime > lifeDay) {
 			clearUserMessage() //清除用户保存的信息,清除localStroage
@@ -166,49 +335,7 @@ function clearUserMessage(userName, token) {
 		//document.getElementById("result").innerHTML = "对不起，您的浏览器不支持 web 存储。";
 	}
 }
-//获取验证码按钮不可点击
-function getCheckNumberDisable() {
-	$("#get_check").attr('disabled', false);
-	$("#get_check").addClass('disable');
-}
-//获取手机验证码
-function getCheckNumber() {
-	var userPhoneVal = $('#userphone').val();
-	$("#get_check").removeClass('disable');
-	$("#get_check").attr('disabled', true);
-	$.ajax({
-		url: 'http://dou.fudayiliao.com/account/GetSmsCode/' + userPhoneVal,
-		type: 'get',
-		//data: userPhoneVal,
-		success: function (res) {
-			console.log('成功')
-			console.log(res)
-		}
-	})
-	var num = 60,
-		tInterval;
-	tInterval = setInterval(function () {
-		$("#get_check").val(num + 's')
-		num--
-		if (num == -1) {
-			clearInterval(tInterval);
-			$("#get_check").val('获取手机验证码');
-			$("#slider2").slider("restore"); //初始化
-		}
-	}, 1000)
-}
-//验证手机号码规则
-function checkPhone() {
-	var phone = document.getElementById('userphone').value;
 
-	if (!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))) {
-		alert("手机号码有误，请重填");
-		$("#slider2").slider("restore"); //初始化
-		return false;
-	} else {
-		getCheckNumberDisable()
-	}
-}
 //转换时间戳
 function transformDate(param) {
 	var date = new Date(parseInt(param.substr(6, 19)))
@@ -297,9 +424,10 @@ $(document).ready(function () {
 	$('.douyin_list_dl dl').hover(function () {
 		$(this).addClass("on").siblings("dl").removeClass("on");
 	});
-	//登录注册模块
+	/* //登录注册模块
 	$(".open_login_form").click(function () {
 		$(".flied_tc").addClass('show');
+		getCheckCode()
 	})
 	//登出
 	$(".loginOut").click(function () {
@@ -307,6 +435,6 @@ $(document).ready(function () {
 		alert('您已经退出登录!')
 		getUserName(false)
 		speedJump()
-	})
+	}) */
 
 })

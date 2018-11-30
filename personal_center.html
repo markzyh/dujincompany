@@ -12,26 +12,41 @@
 <body>
     <!-- 登录注册模块 -->
     <div class="flied_tc">
-        <div class="close_login_form" onclick="hideLoginForm()">x</div>
-        <div class="flied_td">
-            <h4>快速登录</h4>
-            <form method="post">
-                <div class="flied_te">
-                    <!--<img src="http://www.dujin021.com/images/ion_yzma.png" alt=""> -->
-                    <input type="tel" id="userphone" placeholder="输入手机号">
-                </div>
-                <div class="flied_tf">
-                    <div id="slider2" class="slider"></div>
-                </div>
-                <div class="flied_tg cl">
-                    <input class="flied_th fl" type="text" placeholder="验证码" id="check_code">
-                    <input class="flied_ti fr" type="button" value="获取手机验证码" disabled="disabled" id="get_check" onclick="getCheckNumber()">
-                </div>
-                <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
-            </form>
+            <div class="close_login_form" onclick="hideLoginForm()">x</div>
+            <div class="flied_td">
+                <h4 class="login_title"><span class="choosed">快速登录</span><span>新用户注册</span></h4>
+                <form class="login_form show">
+                    <div class="flied_te">
+                        <input type="tel" id="userphone" placeholder="输入手机号">
+                    </div>
+                    <div class="flied_te">
+                        <input type="password" id="userpassword" placeholder="输入密码">
+                    </div>
+                    <input class="flied_tj" type="button" value="立即登录" onclick="userLogin()">
+                </form>
+                <form class="login_form register_form">
+                    <div class="flied_te">
+                        <input type="tel" id="registerPhone" placeholder="输入手机号">
+                    </div>
+                    <div class="flied_te">
+                        <input type="password" id="registerPassword" placeholder="请输入密码">
+                    </div>
+                    <div class="flied_te">
+                        <input type="password" id="confirmRegisterPassword" placeholder="请再次输入密码">
+                    </div>
+                    <div class="flied_te">
+                        <input type="text" id="imgCheckCode" placeholder="请输入图形验证码" class="partinput" onchange="letGetPhoneCode()"><img
+                            src="" id="imgCheckCodeUrl" alt="" srcset="" onclick="getCheckCode()">
+                    </div>
+                    <div class="flied_te">
+                        <input type="text" id="confirmRegisterPassword" placeholder="请输入手机验证码" class="partinput"><input
+                            class="getphone_code" name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
+                    </div>
+                    <input class="flied_tj" type="button" value="立即注册" onclick="userRegister()">
+                </form>
+            </div>
         </div>
-    </div>
-    <!-- 登录注册模块 end-->
+        <!-- 登录注册模块 end-->
     <div id="dymain">   
         <div class="htHeader">
             <div class="htHeader_con">

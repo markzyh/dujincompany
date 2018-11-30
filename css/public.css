@@ -152,13 +152,20 @@ dl.htlist_dla dd img{vertical-align: middle;margin-left: 7px;cursor: pointer;}
 dl.htlist_dla dd button.htlist_dld{cursor: pointer;float: right;margin-top: 3px;color: #666;font-size: 13px;border: 1px solid #bbbbbb;width: 123px;padding-left:15px;text-align: left;background: transparent;line-height: 38px;border-radius: 4px;}
 dl.htlist_dla dd button.htlist_dle{cursor: pointer;margin-left: 127px;border: none;width:124px ;height: 40px;line-height: 40px;background:#eb5169 ;color: #fff;font-size:20px ;text-align: center;display: inline-block;border-radius: 5px;}*/
 /* 验证版块*/
-.flied_tc{background: #efefef;width: 526px;padding-top: 1px;position: fixed;top: 150px;left: 50%;padding-bottom: 126px;margin-left: -180px;z-index: 9999;display: none;}
+.flied_tc{background: #efefef;width: 526px;padding-top: 1px;position: fixed;top: 150px;left: 50%;padding-bottom:60px;margin-left: -180px;z-index: 9999;display: none;}
 .flied_tc.show{display: block;}
 .flied_td{width: 385px;margin: 18px auto auto auto;}
-.flied_td h4{border-bottom: 2px solid #eb5169;height: 55px;line-height: 60px;text-align: center;margin-bottom: 30px;}
-.flied_td .flied_te{border: 1px solid #bbbbbb;height: 49px;line-height: 49px;overflow: hidden;}
-.flied_td .flied_te img{vertical-align: middle;margin-left: 18px;margin-right: 18px;}
-.flied_td .flied_te input{border: none;background-color: transparent;background-image: url(../images/ion_yzma.png);background-repeat: no-repeat;text-indent: 2em;color: #999;background-size: 16px 27px;background-origin: content-box;background-position: center left;padding-left: 20px;width: 100%;height: 100%;}
+/*.flied_td h4{border-bottom: 2px solid #eb5169;height: 55px;line-height: 60px;text-align: center;margin-bottom: 30px;font-size: 20px;font-weight: normal;}*/
+.flied_td h4{border-bottom: 1px solid #bbb;height: 55px;line-height: 60px;text-align: center;margin-bottom: 30px;font-size: 20px;font-weight: normal;}
+.flied_td h4 span{display: inline-block;width: 50%;height: 100%;cursor: pointer;}
+.flied_td h4 span.choosed{border-bottom: 2px solid #eb5169;vertical-align: top;margin-top: -1px;}
+.flied_td .flied_te{border: none !important;height: 49px;line-height: 49px;overflow: hidden;margin:20px 0;}
+.flied_td .flied_te img{vertical-align: middle;/*margin-left: 18px;margin-right: 18px;*/margin-top: -4px;cursor: pointer;}
+.flied_td .flied_te input{border: none;background-color: transparent;background-image: url(../images/ion_yzma.png);background-repeat: no-repeat;text-indent: 2em;color: #999;background-size: 16px 27px;background-origin: content-box;background-position: center left;padding-left: 20px;width: 100%;height: 100%;box-sizing: border-box;vertical-align: top;border: 1px solid #bbbbbb;}
+.flied_td .flied_te input[type='password']{background-image: url(../images/login_form_password.png);}
+.flied_td .flied_te .partinput{width: 56%;background: transparent;padding-left: 0;margin-right: 44px;}
+.flied_td .flied_te .getphone_code{width: 124px;padding-left: 0;cursor: pointer;color: #fff;text-indent: 0;text-align: center;background: #19be6b;}
+.flied_td .flied_te .getphone_code.disabled{background: #b2b2b2;}
 .flied_tf{border: 1px solid #bbbbbb;height: 40px;margin-top: 18px;margin-bottom: 42px;color: #666666;font-size: 14px;background: #cdcdcd;}
 .flied_tg{height: 49px;}
 input.flied_th{border: 1px solid #bbbbbb;width: 171px;line-height: 49px;padding-left: 15px;background: #ffff}
@@ -169,7 +176,9 @@ input.flied_ti:-moz-placeholder{color: #fff;opacity: 1;}
 input.flied_ti::-moz-placeholder{color: #fff;opacity: 1;}
 input.flied_ti:-ms-input-placeholder{color: #fff;}
 input.flied_ti::-ms-input-placeholder{color: #fff;}
-input.flied_tj{width: 385px;height: 49px;border:none;background: #eb5169;color: #fff;cursor: pointer;margin-top: 38px;}
+input.flied_tj{width: 385px;height: 49px;border:none;background: #eb5169;color: #fff;cursor: pointer;margin-top: 10px;}
+.login_form{display: none;}
+.login_form.show{display: block;}
 /*滑动*/
 .demo2{width: 48%;height: 100%;float: right;padding: 20px;border: 1px dashed #fff;border-radius: 4px;box-sizing: border-box;position: relative;}
 .ui-slider-wrap{background: #e8e8e8;position: relative;}
