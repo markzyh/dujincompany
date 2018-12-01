@@ -303,7 +303,7 @@ input[type='radio'] { width: 18px; height: 18px; border: 1px solid #999; border-
 
 .dy-content { width: 1034px; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0 auto; background: #fff; /*border-top: 1px solid transparent; */padding: 50px; margin-left: 50px; }
 
-.dymain_cover { position: fixed; background: #d3d3d3; z-index: 998; width: 100%; height: 100%; opacity: 0.5; }
+.dymain_cover { position: fixed; background: rgba(0,0,0,0.5); z-index: 998; width: 100%; height: 100%;left:0;top:0;}
 #allmap {width: 100%;height: 300px;}
 #dist-sel{margin-left: 10px;margin-bottom: 14px;}
 .province_nearby .input_address{border:1px solid #d5d5d5;width: 478px;height: 30px;line-height: 30px;padding-left: 16px;box-sizing: border-box;background-image: url(../images/province_nearby_mapicon.png);background-repeat: no-repeat;background-position:left center;background-origin: content-box;text-indent: 1.2em;}
@@ -331,6 +331,11 @@ input[type='radio'] { width: 18px; height: 18px; border: 1px solid #999; border-
 .pay_success h4 span { color: #eb5169; }
 .pay_success .pay_success_tips { position: absolute; left: 156px; bottom: 90px; text-align: left; font-size: 16px; }
 .pay_success .pay_success_tips p { margin-top: 8px; color: #999; }
+.pay_success .pay_success_tips.confirm_success_tips{bottom: 200px;}
+.pay_success .pay_success_tips.confirm_success_tips p{margin-top: 30px;}
+.pay_success .pay_success_tips.confirm_success_tips p strong{color: #eb5169;font-weight: normal;}
+
+.confirm_success_btn{width: 180px;height: 52px;line-height: 52px;text-align: center;color: #fff;background: #eb5169;margin:0 auto;bottom:80px;position: absolute;left:50%;margin-left: -90px;border-radius: 4px;font-size: 20px;cursor: pointer;}
 
 .create_title { font-size: 20px; font-weight: normal; text-align: left; margin: 0 auto; border-bottom: 1px solid #868686; padding-bottom: 20px; }
 
@@ -429,6 +434,19 @@ border-bottom: 1px solid #e5e5e5; */ }
 
 
 /*订单详情*/
+.order_status{display: flex;width: 1166px;padding-left: 116px;margin:20px 0 0}
+.status_not{margin-top: 14px;position: absolute;width: 100px;margin-left: -26px;text-align: center;}
+.status_line{width: 238px;height: 1px;background: #dddddd;left: 50px;top: 12px;position: absolute;}
+.status_panel{position: relative;width: 25%;}
+.status_panel{font-size: 18px;color: #333;}
+.status_panel:first-child .status_line{left: 70px;width: 218px;}
+.status_panel.done .status_name{color: #eb5169;}
+.status_line.done{background: #eb5169}
+.status_panel .status_date{font-size: 18px;color: #333}
+.status_name{font-size: 16px;color: #999;}
+.status_panel .status_date,.status_panel .order_money{margin:14px 0 0 -16px;}
+.status_panel.done .status_date,.status_panel.done .order_money{font-size: 16px;color: #ccc;margin:14px 0 0 -2px;}
+/* -------*/
 .order_main {width: 1300px;background: #ffffff; padding: 0px 68px 129px 68px;margin:42px auto auto auto; }
 h4.order_maina {height: 87px;line-height:120px;text-align: center;  color: #333333;font-size: 20px;font-weight: normal; border-bottom: 1px solid #999999;}
 .order_mainb {font-size: 16px;height: 75px; line-height: 76px;width: 940px; margin: auto;}
@@ -436,12 +454,14 @@ h4.order_maina {height: 87px;line-height:120px;text-align: center;  color: #3333
 .order_mainb dt.order_maind{color: #eb5169;}
 .order_mainb span{display: inline-block;;height: 1px; width: 226px; margin-top: 40px;background: #dddddd;vertical-align: top;}
 .order_mainb span.order_mainc{ background: #eb5169;}
-.order_maine {width:1300px;border-bottom: 1px dashed #f0f0f0; padding-left: 185px; box-sizing: border-box;padding-bottom: 30px; }
+.order_maine {width:940px;border-bottom: 1px dashed #f0f0f0; box-sizing: border-box;padding-bottom: 30px;/* display: flex;*/margin:0 auto;}
 .order_maine span{font-size: 14px;color: #ccc;}
 .order_maine .order_mainf span{display: block; color: #cccccc; line-height: 17px;}
-.order_maine .order_maing {font-size: 20px; color: #333333;margin-top: -8px;margin-left: 79px;}
-.order_maine .order_maing.ordered{margin-left: 44px;}
-.order_maine .order_maing.success{margin-left: 200px;}
+.order_maine .order_maing {font-size: 20px; color: #333333;margin-top: -8px;/*margin-left: 212px;*/}
+.order_maine .order_tips{width: 25%;height: 70px;}
+.order_maine .order_tips.notpay{margin-left: 40px;}
+.order_maine .order_maing.ordered{margin-left: 4px;}
+.order_maine .order_maing.success{margin-left: 20px;width: 90px;}
 .order_maine .order_maing b{display: block;font-weight: normal;font-size: 18px;}
 .order_maine span.order_mainh {margin-bottom: 16px;}
 .order_maine em.order_maini {margin-left: 10px;}
@@ -489,6 +509,7 @@ ul.order_mainr.order_mains li:last-child i{background-position:-132px -62px; }
 .dialog_a {width: 100%;background: #ffffff;/*margin: auto; position:fixed;top: 0;left: 50%;margin-left: -380px; display: none; height:100%;*/}
 .dialog_a.show{display: block;}
 .dialog_b {background: url(../images/ht_hoverc.jpg) no-repeat; width: 100%;height:180px ; }
+.dialog_b.details{background: url(../images/details_problem_header.jpg) no-repeat; width: 100%;height:180px ;}
 .dialog_b img{float:right; margin: 20px 10px 0px 0px;cursor: pointer;}
 .dialog_c {width: 1034px; height: 918px;overflow-y: scroll;overflow-x: hidden; margin: 0 auto; overflow-y: auto;padding:0 30px;box-sizing: border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
 .dialog_c h4.dialog_d{font-weight: normal;font-size: 30px;color: #333;line-height: 28px; margin-top: 18px;}
@@ -548,6 +569,7 @@ p.dialog_k {border-bottom: 1px solid #cccccc; padding-bottom: 10px;}
 .compony_auth_label .create_order_tips{/* margin-right:35px; */margin:0 0 0 8px}
 .zzSub_box .compony_auth_label{width:170px;text-align: right;line-height: 38px;font-size:16px; margin-right:35px;color:#666666;display: inline-block;}
 .zzSub_box .compony_auth_label b{color: #eb5169;}
+.zzSub_box .imgCode{margin-left: 8px;}
 .zzSub_box input[type='text'],.zzSub_box input[type='number'],.zzSub_box input[type='tel']{width:320px;height:38px;border:1px solid #bbbbbb;border-radius:3px;padding-left:14px;outline:none;font-size:13px;box-sizing: border-box;}
 .zzSub_box ::-webkit-input-placeholder {color: #cccccc;}
 .zzSub_box :-moz-placeholder { color:#cccccc;}
@@ -561,6 +583,8 @@ margin-left:5px;}
 outline: none;text-align: center;cursor: pointer;}
 .zzSub_box input.dxyz_input{width:188px;}
 .zzSub_box input.dxyz_btn{width:122px;height:40px;background: none;margin-left: 10px;color:#666666;}
+.zzSub_box input.phone_code_btn{cursor: pointer;color: #fff;border-radius: 4px;background: #19be6b;height: 36px;line-height: 36px;}
+.zzSub_box input.phone_code_btn.disabled{background: #ccc;cursor: not-allowed}
 .zzSub_box input#fp_ra{width:19px;height:19px;border-radius: 50%;margin-right:13px;margin-bottom: -3px}
 #fp_ra2{margin-left:45px;width:19px;height:19px;border-radius: 50%;margin-right:13px;margin-bottom: -3px;}
 input.radio_dx{background: url(../images/dxk.png)no-repeat;border:none;}
@@ -571,7 +595,7 @@ input.syxy_input{width:19px;height:19px;border-radius: 50%;/* border:1px solid #
 .sub_tj{margin-top:20px;}
 .sub_tj>input{width: 124px;height:38px;color:#ffffff;border-radius: 3px;font-size:20px;line-height: 38px;}
 .sub_tj>input.cancel_btn{background: #cccccc;}
-.sub_tj>input.submit_btn{background: #eb5169;margin-left:45px;}
+.sub_tj>input.submit_btn{background: #eb5169;margin-left:45px;cursor: pointer;}
 .zzSub_box .order_typename_group{width: 40%;margin-top: 0;}
 #auth_upload_license{display: none}
 .auth_choose_invoice{padding-left: 178px; }

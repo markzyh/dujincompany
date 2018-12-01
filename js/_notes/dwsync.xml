@@ -16,10 +16,10 @@
 <file name="create-order.js" server="djback.120fd.cn.a.o" local="131880475677650567" remote="131880475200000000" Dst="0" />
 <file name="douspeed.js" server="djback.120fd.cn.a.o" local="131880490450166066" remote="131878460400000000" Dst="0" />
 <file name="login.js" server="djback.120fd.cn.a.o" local="131880490492819925" remote="131880358800000000" Dst="0" />
-<file name="order_center.js" server="djback.120fd.cn.a.o" local="131880132324131530" remote="131880133200000000" Dst="0" />
+<file name="order_center.js" server="djback.120fd.cn.a.o" local="131881325119072013" remote="131881329600000000" Dst="0" />
 <file name="personal.js" server="djback.120fd.cn.a.o" local="131879475162470812" remote="131879475000000000" Dst="0" />
-<file name="order_details.js" server="djback.120fd.cn.a.o" local="131880132324141507" remote="131880133200000000" Dst="0" />
-<file name="personal_cellphone.js" server="djback.120fd.cn.a.o" local="131879455598883039" remote="131879455200000000" Dst="0" />
+<file name="order_details.js" server="djback.120fd.cn.a.o" local="131881315787345535" remote="131881329600000000" Dst="0" />
+<file name="personal_cellphone.js" server="djback.120fd.cn.a.o" local="131881064300668079" remote="131881090200000000" Dst="0" />
 <file name="personal_center.js" server="djback.120fd.cn.a.o" local="131879500406829605" remote="131879598600000000" Dst="0" />
 <file name="personal_data.js" server="djback.120fd.cn.a.o" local="131879467563218509" remote="131879467800000000" Dst="0" />
 <file name="personal_password.js" server="djback.120fd.cn.a.o" local="131880200824231272" remote="131880358800000000" Dst="0" />
@@ -32,5 +32,5 @@
 <file name="jquery.transit.min.js" server="djback.120fd.cn.a.o" local="131880490481952548" remote="131876997600000000" Dst="0" />
 <file name="slick.js" server="djback.120fd.cn.a.o" local="131880490497537862" remote="131876996400000000" Dst="0" />
 <file name="jquery-1.10.1.min.js" server="djback.120fd.cn.a.o" local="131880490463657264" remote="131876996400000000" Dst="0" />
-<file name="company_auth.js" server="djback.120fd.cn.a.o" local="131879543033111717" remote="131879598600000000" Dst="0" />
+<file name="company_auth.js" server="djback.120fd.cn.a.o" local="131881234846828750" remote="131881329600000000" Dst="0" />
 </dwsync>

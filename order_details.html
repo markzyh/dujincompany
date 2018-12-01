@@ -58,8 +58,8 @@
                         src="" id="imgCheckCodeUrl" alt="" srcset="" onclick="getCheckCode()">
                 </div>
                 <div class="flied_te">
-                    <input type="text" id="getphone_code" placeholder="请输入手机验证码" class="partinput"><input
-                        class="getphone_code" name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
+                    <input type="text" id="getphone_code" placeholder="请输入手机验证码" class="partinput"><input class="getphone_code"
+                        name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
                 </div>
                 <input class="flied_tj" type="button" value="立即注册" onclick="userRegister()">
             </form>
@@ -89,29 +89,72 @@
         <div class="dybox" id="dybox">
             <div class="order_main">
                 <h4 class="order_maina">订单状态</h4>
-                <dl class="order_mainb  cl">
+                <!-- <dl class="order_mainb  cl">
                     <dt class="order_maind">提交订单<span class="order_mainc"></span></dt>
                     <dt class="order_maind">审核中<span class="order_mainc"></span></dt>
                     <dt class="order_maind">投放中<span class="order_mainc"></span></dt>
                     <dt>已完成</dt>
                 </dl>
                 <div class="order_maine cl">
-                    <div class="order_mainf fl">
+                    <div class="order_mainf fl order_tips">
                         <span class="order_mainh">下单时间：
-                            <!-- 2018-11-15<em class="order_maini">13:55:23</em> -->{{orderDate}}</span>
+                            {{orderDate}}</span>
                         <span>下单金额：<em>¥{{orderMoney}}</em></span>
                     </div>
-                    <div class="order_maing fl">
+                    <div class="order_maing fl order_tips notpay">
                         <b>正在审核</b>
                         <span>审核通过：2018-11-15 19：55：23</span>
                     </div>
-                    <div class="order_maing fl ordered">
+                    <div class="order_maing fl ordered order_tips">
                         <b>已下单2小时</b>
                     </div>
-                    <div class="order_maing fl success">
+                    <div class="order_maing fl success order_tips">
                         <b>投放成功</b>
                     </div>
-
+                </div> -->
+                <div class="order_status">
+                    <div class="status_panel done">
+                        <div class="status_name">
+                            <span>提交订单</span>
+                        </div>
+                        <div class="status_line done"></div>
+                        <div class="status_date">下单时间：{{createTime}}</div>
+                        <div class="order_money">下单金额：¥{{orderInfo.Money}}</div>
+                    </div>
+                    <div class="status_panel done">
+                        <div class="status_name">
+                            <span>审核中</span>
+                        </div>
+                        <div class="status_line" :class="{done:orderStatus >= 2}"></div>
+                        <div class="status_date" v-if="orderStatus >= 2">审核通过：</div>
+                        <div class="status_date" v-if="orderStatus >= 2">{{payTime}}</div>
+                        <div class="status_not" v-if="orderStatus == 0">正在审核</div>
+                        <div class="status_not" v-if="orderStatus == 1">审核不通过</div>
+                    </div>
+                    <div class="status_panel" :class="{done:orderStatus >= 2}">
+                        <div class="status_name">
+                            <span>投放中</span>
+                        </div>
+                        <div class="status_line" :class="{done:orderStatus >= 3}"></div>
+                        <div class="status_date" v-if="orderStatus == 2">正在投放</div>
+                        <div class="status_date" v-if="orderStatus > 2">投放完成</div>
+                        <!-- <div class="status_date" v-if="orderStatus > 0">{{payTime}}</div>
+                            <div class="status_not" v-if="orderStatus ==0">正在审核</div> -->
+                    </div>
+                    <!--  <div class="status_panel">
+                        <div class="status_name">
+                            <span>投放中</span>
+                        </div>
+                        <div class="status_line"></div>
+                        <div class="status_not">正在审核</div>
+                    </div> -->
+                    <div class="status_panel" :class="{done:orderStatus >= 3}">
+                        <div class="status_name">
+                            <span>已完成</span>
+                        </div>
+                        <div class="status_date" v-if="orderStatus == 3">投放成功：</div>
+                        <div class="status_date" v-if="orderStatus == 3">{{completeTime}}</div>
+                    </div>
                 </div>
                 <h4 class="order_mainj">投放内容</h4>
                 <div class="order_maink">
@@ -130,13 +173,14 @@
                                 alt="" class="order_tips_icon">
                             <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg" alt=""
                                     class="order_tips_description_tri"><b>已消耗金额</b>本次投放中，已经用于视频投放的金额。</div>
-                        </div><span>600</span></div>
+                        </div><span>¥{{costMoney}}</span></div>
                     <div class="compony_auth_label dis-inline">消耗完成度<div class="create_order_tips"><img src="images/create_order_tips.png"
                                 alt="" class="order_tips_icon">
                             <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg" alt=""
-                                    class="order_tips_description_tri"><b>消耗完成度</b>设置投放的金额中已经消耗金额的比例（计算公式：已消耗金额 /
+                                    class="order_tips_description_tri"><b>消耗完成度</b>设置投放的金额中已经消耗金额的比例（计算公式：已消耗金额
+                                /
                                 本次投放总金额）</div>
-                        </div><span>600</span></div>
+                        </div><span>{{costMoney/orderMoney*100}}%</span></div>
                 </div>
                 <h4 class="order_mainj">数据总览</h4>
                 <ul class="order_mainr cl">
@@ -175,7 +219,7 @@
             </div>
         </div>
         <div class="dialog_a" v-if="isShowProblems" :class="{show:isShowProblems}">
-            <div class="dialog_b">
+            <div class="dialog_b details">
                 <img src="images/ht_hoverd.png" @click="closeProblems" alt="">
             </div>
             <div class="dialog_c">

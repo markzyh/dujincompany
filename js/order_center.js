@@ -26,25 +26,26 @@ var app = new Vue({
 			}
 
 		],
-		orderStatusLists: [{
+		orderStatusLists: [
+			{
 				name: '全部',
+				value: ''
+			},
+			{
+				name: '审核中',
 				value: 0
 			},
 			{
-				name: '已完成',
+				name: '未支付',
 				value: 1
 			},
 			{
-				name: '执行中',
+				name: '投放中',
 				value: 2
 			},
 			{
-				name: '待支付',
+				name: '已完成',
 				value: 3
-			},
-			{
-				name: '待审核',
-				value: 4
 			}
 		]
 	},
@@ -119,7 +120,16 @@ var app = new Vue({
 		}, */
 		//选择订单状态,根据状态查询
 		chooseOrderStatus: function () {
-			var status = this.choosedOrderStatus
+			//var status = this.choosedOrderStatus
+			var status
+			for(var i=0;i<this.orderStatusLists.length;i++){
+				if(this.orderStatusLists[i].name == this.choosedOrderStatus){
+					status = i-1
+				}
+			} 
+			//var status = this.choosedOrderStatus
+			//alert(this.choosedOrderStatus.value())
+			//var status = index
 			this.getOrderList(status)
 			//this.getOrderListAttr(this.choosedOrderStatus)
 			console.log(this.choosedOrderStatus)

@@ -6,7 +6,7 @@ var app = new Vue({
 		userName:'',
 		douyinId:'',
 		orderInfo:'',//用户信息对象
-		orderStatus:'',
+		//orderStatus:0,
 		orderLink:'',//投放链接
 		playCount:'',//播放量
 		interactionCount:'',//互动量
@@ -14,11 +14,46 @@ var app = new Vue({
 		commentCount:'',//评论量
 		likeCount:'',//点赞量
 		orderMoney:'',//下单金额
-		orderDate:'',//下单时间
-		statusLists:[
-			'待审核','执行中','已完成'
+		createTime:'',//下单时间
+		payTime:'',//审核通过时间
+		completeTime:'',//完成时间
+		costMoney:24,//消耗金额
+		orderStatusLists: [
+			{
+				name: '全部',
+				value: ''
+			},
+			{
+				name: '审核中',
+				value: 0
+			},
+			{
+				name: '未支付',
+				value: 1
+			},
+			{
+				name: '投放中',
+				value: 2
+			},
+			{
+				name: '已完成',
+				value: 3
+			}
+			,
+			{
+				name: '',
+				value: 4
+			},
+			{
+				name: '',
+				value: 5
+			},
+			{
+				name: '',
+				value: 6
+			}
 		],
-		statusIndex:0//待审核
+		orderStatus:0,
 	},
 	methods: {
 		//查询订单状态
@@ -55,6 +90,11 @@ var app = new Vue({
 			var time = this.checkTen(timeYear) + "-" + this.checkTen(timeMouth) + "-" + this.checkTen(timeDate) + "   " + this.checkTen(timeHours) + ":" + this.checkTen(timeMinutes) + ":" + this.checkTen(timeSeconds)
 			return time
 		},
+		getOrderMessage:function(){
+			this.createTime = this.transformDateStamp(this.orderInfo.CreateDateTime)
+			this.payTime = this.transformDateStamp(this.orderInfo.PayTime)
+			this.completeTime = this.transformDateStamp(this.orderInfo.CompleteTime)
+		},
 		//根据订单信息渲染页面
 		getUserMessage:function(){
 			//console.log(this.orderInfo)
@@ -85,6 +125,8 @@ var app = new Vue({
 			}).then(function(res){
 				console.log(res.data.Data)
 				_this.orderInfo = res.data.Data
+				_this.orderStatus = res.data.Data.Status
+				_this.getOrderMessage()
 				_this.getUserMessage()
 				console.log(_this.orderInfo)
 			})

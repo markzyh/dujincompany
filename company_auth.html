@@ -41,8 +41,8 @@
                         src="" id="imgCheckCodeUrl" alt="" srcset="" onclick="getCheckCode()">
                 </div>
                 <div class="flied_te">
-                    <input type="text" id="getphone_code" placeholder="请输入手机验证码" class="partinput"><input
-                        class="getphone_code" name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
+                    <input type="text" id="getphone_code" placeholder="请输入手机验证码" class="partinput"><input class="getphone_code"
+                        name="mobile" type="text" value="获取手机验证码" onclick="getCheckNumber()">
                 </div>
                 <input class="flied_tj" type="button" value="立即注册" onclick="userRegister()">
             </form>
@@ -108,29 +108,32 @@
             <div class="dy-content create_box">
                 <h3 class="create_title">资质提交</h3>
                 <div class="zzSub">
-                    <div class="zzSub_box">
-                        <div class="compony_auth_label"><b>*</b> 抖 音 号：</div><input type="text" placeholder="请输入您要投放的抖音账号"
-                            class="zzSub_input">
-                    </div>
-                    <div class="zzSub_box">
-                        <div class="compony_auth_label"><b>*</b> 企业名称：</div><input type="text" placeholder="请输入企业名称"
-                            class="zzSub_input">
-                    </div>
-                    <div class="zzSub_box">
-                        <div class="compony_auth_label"><b>*</b> 营业执照注册号：</div><input type="text" placeholder="请输入18位统一社会信用代码"
-                            class="zzSub_input">
-                    </div>
+                    <form action="" ref="auth_form">
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 抖 音 号：</div><input type="text" placeholder="请输入您要投放的抖音账号"
+                                class="zzSub_input" v-model="douyinName">
+                        </div>
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 企业名称：</div><input type="text" placeholder="请输入企业名称"
+                                v-model="companyName" class="zzSub_input">
+                        </div>
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 营业执照注册号：</div><input type="text" placeholder="请输入18位统一社会信用代码"
+                                v-model="companyId" class="zzSub_input">
+                        </div>
+                    </form>
                     <div class="zzSub_box">
                         <div class="dis-inline compony_auth_group">
-                            <div class="compony_auth_label"><b>*</b> 企业营业执照<div class="create_order_tips"><img src="images/create_order_tips.png"
+                            <div class="compony_auth_label"><b>*</b> 企业营业执照
+                                <!-- <div class="create_order_tips"><img src="images/create_order_tips.png"
                                         alt="" class="order_tips_icon">
                                     <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
                                             alt="" class="order_tips_description_tri"><b>企业营业执照</b>只支持中国大陆工商局或市场监督管理局登记的企业，请上传最新的营业执照，正面照，资质无残缺信息。</div>
-                                </div>：</div>
+                                </div> -->：</div>
 
                         </div>
                         <div class="sc_k">
-                            <form>
+                            <form ref="auth_form">
                                 <label for="auth_upload_license" v-if="companyIdUrl == false">上传营业执照</label>
                                 <input type="file" v-if="companyIdUrl == false" id="auth_upload_license" ref="auth_upload_license"
                                     name="path" @change="uploadCardFace($event,'auth_upload_license','companyIdUrl')">
@@ -139,39 +142,68 @@
                         </div>
                     </div>
                     <div class="zzSub_box">
+                        <div class="dis-inline compony_auth_group">
+                            <div class="compony_auth_label"><b>*</b> 行业许可证
+                                <!-- <div class="create_order_tips"><img src="images/create_order_tips.png"
+                                        alt="" class="order_tips_icon">
+                                    <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
+                                            alt="" class="order_tips_description_tri"><b>企业营业执照</b>只支持中国大陆工商局或市场监督管理局登记的企业，请上传最新的营业执照，正面照，资质无残缺信息。</div>
+                                </div> -->：</div>
+
+                        </div>
+                        <div class="sc_k">
+                            <form ref="auth_form">
+                                <label for="auth_upload_permit" v-if="permitUrl == false">上传行业许可证</label>
+                                <input type="file" v-if="permitUrl == false" id="auth_upload_permit" ref="auth_upload_permit"
+                                    name="path" @change="uploadCardFace($event,'auth_upload_permit','permitUrl')">
+                                <img :src="permitUrl" alt="" v-if="permitUrl != false">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="zzSub_box">
                         <div class="compony_auth_label"><b>*</b> 认 证 公 函<div class="create_order_tips"><img src="images/create_order_tips.png"
                                     alt="" class="order_tips_icon">
                                 <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
                                         alt="" class="order_tips_description_tri"><b>认证公函</b>下载填写 <a href="">《企业认证申请公函》</a>，填写完成后加盖红色公章，上传清晰的公函扫描件。</div>
                             </div>：</div>
                         <div class="sc_k">
-                            <form>
-                                <label for="auth_upload_letter" v-if="industryCardURL == false">上传营业执照</label>
-                                <input type="file" v-if="industryCardURL == false" id="auth_upload_letter" ref="auth_upload_letter"
-                                    name="path" @change="uploadCardFace($event,'auth_upload_letter','industryCardURL')">
-                                <img :src="industryCardURL" alt="" v-if="industryCardURL != false">
+                            <form ref="auth_form">
+                                <label for="auth_upload_letter" v-if="authUrl == false">上传认证公函</label>
+                                <input type="file" v-if="authUrl == false" id="auth_upload_letter" ref="auth_upload_letter"
+                                    name="path" @change="uploadCardFace($event,'auth_upload_letter','authUrl')">
+                                <img :src="authUrl" alt="" v-if="authUrl != false">
                             </form>
                         </div>
                     </div>
-                    <div class="zzSub_box">
-                        <div class="compony_auth_label"><b>*</b> 运营人姓名<div class="create_order_tips"><img src="images/create_order_tips.png"
-                                    alt="" class="order_tips_icon">
-                                <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
-                                        alt="" class="order_tips_description_tri"><b>运营人姓名</b>请填写与《企业认证申请公函》上的运营者一致，在认证审核过程中，将与该运营者联系核实。</div>
-                            </div>：</div><input type="text" placeholder="请输入运营人姓名">
-                    </div>
-                    <div class="zzSub_box">
-                        <div class="compony_auth_label"><b>*</b> 运营人联系电话<div class="create_order_tips"><img src="images/create_order_tips.png"
-                                    alt="" class="order_tips_icon">
-                                <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
-                                        alt="" class="order_tips_description_tri"><b>运营人联系电话</b>请填写运营者的手机号，在认证审核过程中，将与该运营者联系核实。</div>
-                            </div>：</div><input type="text" placeholder="请输入运营人联系电话">
-                    </div>
-                    <div class="zzSub_box">
-                        <div class="compony_auth_label"><b>*</b> 短 信 验 证 码：</div>
-                        <input type="text" class="dxyz_input" placeholder="请输入验证码">
-                        <input type="button" class="dxyz_btn" value="获取验证码">
-                    </div>
+                    <form ref="auth_form">
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 运营人姓名<div class="create_order_tips"><img src="images/create_order_tips.png"
+                                        alt="" class="order_tips_icon">
+                                    <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
+                                            alt="" class="order_tips_description_tri"><b>运营人姓名</b>请填写与《企业认证申请公函》上的运营者一致，在认证审核过程中，将与该运营者联系核实。</div>
+                                </div>：</div><input type="text" placeholder="请输入运营人姓名" v-model="operateName">
+                        </div>
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 运营人联系电话<div class="create_order_tips"><img src="images/create_order_tips.png"
+                                        alt="" class="order_tips_icon">
+                                    <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
+                                            alt="" class="order_tips_description_tri"><b>运营人联系电话</b>请填写运营者的手机号，在认证审核过程中，将与该运营者联系核实。</div>
+                                </div>：</div><input type="text" placeholder="请输入运营人联系电话" v-model="operatePhone">
+                        </div>
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 图 形 验 证 码：</div>
+                            <input type="text" class="dxyz_input" placeholder="请输入验证码" v-model="imgCheckCode">
+                            <img :src="imgCheckCodeUrl" alt="" class="imgCode" @click="getImgCheckCode">
+                            <!-- <input type="button" class="dxyz_btn phone_code_btn" v-model="watchPhoneCodeBtn" @click="getPhoneCode" :class="{disabled:!isLetPhoneCode}" :disabled="!isLetPhoneCode"> -->
+                        </div>
+                        <div class="zzSub_box">
+                            <div class="compony_auth_label"><b>*</b> 短 信 验 证 码：</div>
+                            <input type="text" class="dxyz_input" placeholder="请输入验证码" v-model="phoneCheckCode">
+                            <input type="button" class="dxyz_btn phone_code_btn" v-model="watchPhoneCodeBtn" @click="getPhoneCode"
+                                :class="{disabled:!isLetPhoneCode}" :disabled="!isLetPhoneCode">
+                        </div>
+                    </form>
                     <!-- <div class="zzSub_box">
                             <span></span>
                             <div id="zzSub_box_radio">
@@ -180,19 +212,17 @@
                             </div>
 
                         </div> -->
-                    <div class="zzSub_box auth_choose_invoice">
+                    <!-- <div class="zzSub_box auth_choose_invoice">
                         <div class="order_typename_group" v-for="(item,index) in isGetInvoiceLists" :key="index"><input
                                 type="radio" name="choose_invoice" :class="{radio_checked:choosedInvoiceIndex === index}"
                                 :value="item.name" @click="choosedAuth(index)"><span>{{item}}</span>
                         </div>
                     </div>
                     <div class="zzSub_box">
-                        <!-- <div class="compony_auth_label"><b>*</b> 发票接受电子邮箱：</div>
-                        <input type="text" placeholder="请输入用于接收发票的电子邮箱"> -->
                         <div class="compony_auth_label"><b>*</b> 发票接受电子邮箱：</div><input type="text" placeholder="请输入用于接收发票的电子邮箱"
                             class="zzSub_input">
 
-                    </div>
+                    </div> -->
                     <div class="zzSub_box auth_agree">
                         <div class="zzSub_box syxy">
                             <span></span><label for=""><input type="checkbox" class="syxy_input"><em>同意</em>
@@ -202,15 +232,28 @@
                     <div class="zzSub_box auth_submit">
                         <span></span>
                         <div class="sub_tj">
-                            <input type="button" value="取消" class="cancel_btn">
-                            <input type="submit" value="提交" class="submit_btn">
+                            <!--  <input type="button" value="取消" class="cancel_btn"> -->
+                            <input type="button" value="提交" class="submit_btn" @click="confirmCompanyAuth">
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="dymain_cover" v-if="isConfirm">
+            <div class="pay_success confirm_success" v-if="isConfirm" :class="{show:isConfirm}">
+                <h3 style="margin-top: 80px;"><img src="images/pay_success_03.jpg" alt="">企业认证</h3>
+                <!-- <h4><span>秒</span>后将跳转到订单中心</h4> -->
+                <div class="pay_success_tips confirm_success_tips">
+                    <h5>温馨提示</h5>
+                    <p>1、您的认证资料已成功提交，不支持修改。</p>
+                    <p>2、请尽快联系您的客户经理，支付审核服务费<strong>600元</strong> ，进入审核流程，完成支付。</p>
+                    <p>3、如需修改认证资料，可通过电话或QQ方式联系您的客户经理。</p>
+                    <p>4、如有疑问，请直接拨打<strong>400-040-2120</strong>。</p>
+                </div>
+                <div class="confirm_success_btn" @click="closeConfirm">确定</div>
+            </div>
+        </div>
     </div>
     <script src="js/slide-check.js"></script>
     <script src="js/login.js"></script>
