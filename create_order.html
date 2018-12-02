@@ -123,8 +123,7 @@
                             投放内容
                             <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
                                 <div class="order_tips_description"><img src="images/order_tips_description_tri.jpg"
-                                        alt="" class="order_tips_description_tri"><b>您要投放的链接</b>打开您想要投放的视频，<strong>选择“分享到
-                                        复制链接”</strong>，将<strong>删除文字后的链接</strong>粘贴到下框。</div>
+                                        alt="" class="order_tips_description_tri"><b>您要投放的链接</b>打开您想要投放的视频，<strong>选择“分享到&gt;复制链接”</strong>，将<strong>删除文字后的链接</strong>粘贴到下框。</div>
                             </div>
                         </label>
                         <input type="text" id="order_link" name="order_link" v-model="orderLink" class="order_link_value"
@@ -133,7 +132,7 @@
                             <span>抖音昵称：{{userName}}</span><span>抖音号：{{douyinId}}</span></p>
                     </div>
 
-                    <div class="order_type">
+                    <div class="order_link order_type">
                         <label for="order_typename">
                             把视频推荐给潜在兴趣用户
                             <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
@@ -257,7 +256,7 @@
                                                     <!-- <span v-for="(item,index) in "></span>  -->
                                                 </div>
                                                 <div class="region_choosed" v-if="index === 4">
-                                                    已选区域：<span v-for="(item,index) in choosedNearbyLists" v-if="choosedNearbyLists.length >= 0">{{item.name}}{{item.km}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                    已选区域：<span v-for="(item,index) in choosedNearbyLists" v-if="choosedNearbyLists.length >= 0">{{item.name}}{{item.km}}&nbsp;&nbsp;<b class="deleteChoosedNearby" @click="deleteChoosedNearby(index)">x</b>&nbsp;&nbsp;</span>
                                                     <!-- <span v-for="(item,index) in "></span>  -->
                                                 </div>
                                                 <div class="confirm_provice" @click="confirmProvice(index)">
@@ -266,18 +265,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="order_choosed_params">已选择<span>性别 : {{choosedSex}}</span><span>年龄 :
-                                            {{choosedAge.toString()}}</span><span>地域 :
+                                    <div class="order_choosed_params"> 已选择<!--<span>性别 : {{choosedSex}}</span><span>年龄 :
+                                            {{choosedAge.toString()}}</span> --><span><!-- 地域 : -->
                                             {{choosedValue}}</span></div>
                                 </div>
                             </transition>
                         </div>
                     </div>
                     <div class="order_choosed_params" v-if="isShowDefaultValue">
-                        已选择<span>性别 : {{choosedSex}}</span><span>年龄 : {{choosedAge.toString()}}</span><span>地域 :
+                        已选择<!-- <span>性别 : {{choosedSex}}</span><span>年龄 : {{choosedAge.toString()}}</span> --><span><!-- 地域 : -->
                             {{choosedValue}}</span>
                     </div>
-                    <div class="order_increment">
+                    <div class="order_link order_increment">
                         <label for="order_increment">
                             预计播放量提升
                             <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">
@@ -288,7 +287,7 @@
                                     <!-- {{incrementNumber}} -->{{increNumber}}</span>+</div>
                         </label>
                     </div>
-                    <div class="order_price">
+                    <div class="order_link order_price">
                         <label for="order_increment">
                             投放金额
                             <div class="create_order_tips"><img src="images/create_order_tips.png" alt="" class="order_tips_icon">

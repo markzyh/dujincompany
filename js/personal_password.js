@@ -16,6 +16,10 @@ var app = new Vue({
 			var confirmNewPassword = this.confirmNewPassword
 			var Token = getUsermessage().token
 			console.log(Token)
+			if(oldPassword == '' || userNewPassword == ''){
+		          alert('密码不能为空!')
+		          return false
+		      }
 			if(oldPassword == userNewPassword){
 				alert('新密码与旧密码一致,请您输入新的密码')
 				return false

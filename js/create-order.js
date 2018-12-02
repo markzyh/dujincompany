@@ -46,6 +46,7 @@ var app = new Vue({
         douyinId: '', //抖音Id
         userName: '', //用户抖音昵称
         userInputAddressName: '', //用户输入的地址
+        oldAddress:'',
         isPaySuccess: false, //最后,是否提交成功
         successCountDownNumber: 3, //成功后的倒计时
         userIsLogin: false, //用户是否登录
@@ -343,9 +344,21 @@ var app = new Vue({
             this.getChoosedValue()
             //console.log(this.choosecitiesArray)
         },
+        //删除一天附近投放记录
+        deleteChoosedNearby:function(index){
+            this.choosedNearbyLists.splice(index,1)
+            this.oldAddress = ''
+
+        },
         //添加一条附近投放的记录
         addNearbyKmList: function () {
+
+            if(this.oldAddress != '' && this.oldAddress == this.userInputAddressName){
+                alert('地址重复了')
+                return false
+            }
             var address = this.userInputAddressName
+            this.oldAddress = this.userInputAddressName
             var km = this.customRangeLists[this.choosedRangeIndex].name
             var obj = {
                 name: address,
@@ -493,9 +506,13 @@ var app = new Vue({
                 this.ischooseCitiesRadio = false //城市变为单选 
             }
             if (this.choosedFlag == true && index != this.userRegionIndex) {
+
                 alert('地域只支持单选,如果选择其他区域,已选择的地域将会失效')
                 this.choosedValue = '' //切换地域选择方式后,清空已经选择的
                 this.clearchooseAll() //清空已经选择的,已经添加到数组中的值
+                if(index === 0){
+                    this.choosedValue = '全国'
+                }
             }
             this.choosedFlag = true //改变状态,证明已经选择过地区了
             //this.chooseParmas(index,attr,array)
@@ -553,11 +570,15 @@ var app = new Vue({
         },
         confirmCustomPay: function () {
             //点击确认金额后验证数字的格式
-            if (this.checkCustomPayNumber(this.customPayNumber)) {
+            if (this.checkCustomPayNumber(this.customPayNumber) != false) {
                 this.payNumberValue = this.customPayNumber //输入的金额等于显示的金额
                 //alert(this.customPayNumber)
+                this.nowPayIndex = 0 //金额的方式
+                //return false
+            }else{
+                return false
             }
-            this.nowPayIndex = 2 //金额的方式
+            
         },
         choosePayNumber: function (index) {
             this.nowPayIndex = index

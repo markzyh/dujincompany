@@ -309,6 +309,8 @@ input[type='radio'] { width: 18px; height: 18px; border: 1px solid #999; border-
 .province_nearby .input_address{border:1px solid #d5d5d5;width: 478px;height: 30px;line-height: 30px;padding-left: 16px;box-sizing: border-box;background-image: url(../images/province_nearby_mapicon.png);background-repeat: no-repeat;background-position:left center;background-origin: content-box;text-indent: 1.2em;}
 .province_nearby p{font-size: 14px;color: #999;margin:14px;}
 .add_input_address{width: 77px;height: 32px;line-height: 32px;background: #d5d5d5;color: #666;cursor: pointer;}
+
+.deleteChoosedNearby{font-weight: normal;cursor: pointer;color: #eb5169;}
 .nearby_group{position: relative;margin-right: 80px;}
 .province_nearby .nearby_group.checked input{width: 17px;height: 17px;border:none;background: url(../images/province_nearby_choosed.png) no-repeat center;}
 .province_nearby .nearby_group.checked h6{width: 89px;left: 16px;}
@@ -407,7 +409,9 @@ border-bottom: 1px solid #e5e5e5; */ }
 .confirm_provice { font-size: 16px; color: #fff; width: 80px; height: 26px; text-align: center; line-height: 26px; background: #eb5169; margin: 20px auto 0; cursor: pointer; }
 
 .order_choosed_params { font-size: 16px; color: #999; margin-left: 30px; margin-top: 18px; }
-.order_choosed_params span { display: inline-block; padding: 2px 6px; line-height: 26px; text-align: center; color: #999; border: 1px solid #d5d5d5; margin-left: 14px; text-indent: 0; cursor: pointer; }
+.order_choosed_params.top{margin-left: 0}
+.order_choosed_params.top span{border:none;text-align: left;}
+.order_choosed_params span { display: inline-block; padding: 2px 6px; line-height: 26px; text-align: left; color: #999;/* border: 1px solid #d5d5d5;*/ margin-left: 14px; text-indent: 0; cursor: pointer; }
 
 .order_price .customtype_form { width: 284px; margin-left: -76px; }
 .order_price .customtype_form h3 { font-size: 16px; color: #666; margin-top: 16px; }
